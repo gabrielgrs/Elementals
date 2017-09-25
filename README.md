@@ -9,7 +9,7 @@ Ver o status local
 # git pull
 Atualiza o local com base no servidor
 
-# git add . -
+# git add .
 Adiciona arquivos a Stage, no lugar do ponto, colocar nome de um arquivo se preciso.
 
 # git commit -m "Nome do Commit"
