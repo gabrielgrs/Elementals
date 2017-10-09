@@ -9,11 +9,15 @@ public class Player : MonoBehaviour {
 
 	//variáveis
 	float horizontal;
+	// Verifica se ele está na direita
 	private bool ladoDireito;
 
+	// Pega GameObject 
 	public LayerMask plataforma;
+	// Verifica o ponto de colisão do piso
 	public Vector2 pontoColisaoPiso = Vector2.zero;
 
+	// Verifica se está no chão
 	public bool estaNoChao;
 	public float raio;
 	public Color debugCorColisao = Color.red;
