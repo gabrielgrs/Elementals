@@ -47,8 +47,7 @@ public class EnemyAI : MonoBehaviour {
 	}
 
 	void attack() {
-		// atacando
-		PlayerHealth player = (PlayerHealth)target.GetComponent<PlayerHealth>();
-		player.takeDamage (10);
+		PlayerController player = (PlayerController)target.GetComponent<PlayerController>();
+		player.receiveDamage (10);
 	}
 }
