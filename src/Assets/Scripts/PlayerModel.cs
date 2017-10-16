@@ -23,7 +23,6 @@ public class PlayerModel : MonoBehaviour {
 	}
 
 	void Update() {
-		print (Life);
 	}
 
 }

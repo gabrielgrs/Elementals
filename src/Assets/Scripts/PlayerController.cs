@@ -3,35 +3,38 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
-	private GameObject player;
-	private PlayerModel model;
-	private GameObject enemy;
+	public GameObject player;
+	public PlayerModel model;
+	public GameObject enemy;
 
 	void Start () {
 		player = GameObject.FindGameObjectWithTag ("Player");
-		model = (PlayerModel)player.GetComponent<PlayerModel>();
+		model = player.GetComponent<PlayerModel> ();
 		enemy = GameObject.FindGameObjectWithTag ("Enemy");
 	}
 
 	void Update () {
-		print (model.Life);
+		// print (model.Life);
 	}
 
 	public void receiveDamage(int damage) {
+		print (model.Life);
 		int finalDamage = model.Defense - damage;
 
 		if (finalDamage < 1) {
 			finalDamage = 1;
+			model.Life -= finalDamage;
 		} else if (finalDamage > 0) {
-			model.Life -= damage;
+			model.Life -= finalDamage;
 		}
 
 		verifyLife ();
 	}
 
-	private void verifyLife() {
+	public void verifyLife() {
 		if (model.Life < 1) {
 			model.Died = true;
+			print ("Morto");
 		}
 	}
 }
