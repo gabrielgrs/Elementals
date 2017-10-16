@@ -5,6 +5,11 @@ using UnityEngine;
 public class PlayerModel : MonoBehaviour {
 	public string Name;
 
+	public int Level;
+	public int Exp;
+
+	public int Gold;
+
 	public int MaxLife;
 	public int Life;
 
@@ -31,9 +36,21 @@ public class PlayerModel : MonoBehaviour {
 		Attack = 10;
 		Defense = 10;
 		Died = false;
+
+		Gold = 0;
+
+		Exp = 1;
+		Level = 0;
+		levelValidator ();
 	}
 
 	void Update() {
+	}
+
+
+	void levelValidator() {
+		if (Exp < 1) 
+			Level = 1;
 	}
 
 }

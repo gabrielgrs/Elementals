@@ -3,9 +3,22 @@ using System.Collections;
 
 
 public class AttackTrigger : MonoBehaviour {
-	public int damage = 20;
+	public GameObject player;
+	public PlayerModel playerModel;
 
-	/* void OnTriggerEnter2D(Collider2D col) {
-		if (col.isTrigger != true && col.compareTag ("Enemy")) { }
-	} */
+	public int damage;
+
+	void Start(){
+		player = GameObject.FindGameObjectWithTag ("Player");
+		playerModel = player.gameObject.GetComponent<PlayerModel> ();
+		damage = playerModel.Attack;
+
+	}
+
+	void OnTriggerEnter2D(Collider2D col) {
+		if (col.isTrigger != true && col.CompareTag ("Enemy")) {
+			// Valida dano no inimigo
+		}
+			
+	}
 }

@@ -6,24 +6,32 @@ public class PlayerMovimentation : MonoBehaviour {
 	private float horizontalMove;
 	private float moveSpeed;
 	private float jumpForce;
+
+    private bool rightSide;
+    private bool inFloor;
+
 	private Rigidbody2D rb2d;
 
+    public GameObject floorCheker;
 
-	// Use this for initialization
-	void Start () {
-		// Pega o componente RigidBody2D
+    // Use this for initialization
+    void Start () {
 		rb2d = GetComponent<Rigidbody2D>();
-		// Define velocidade de movimentação
+
 		moveSpeed = 5f;
-		// Define força do pulo
+
 		jumpForce = 100f;
+        // Define direção do personagem
+		rightSide = true;
+        inFloor = true;
+        
 
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		moveInX ();
-		// jump ();
+		jump ();
 	}
 
 
@@ -32,28 +40,21 @@ public class PlayerMovimentation : MonoBehaviour {
 		if (Input.GetAxisRaw("Horizontal") > 0) {
 			transform.Translate (moveSpeed * Vector2.right * Time.deltaTime);
 			transform.eulerAngles = new Vector2(0, 0);
+			rightSide = true;
 		} 
 		// Move para a esquerda
 		if (Input.GetAxisRaw("Horizontal") < 0) {
 			transform.Translate (moveSpeed * Vector2.right *  Time.deltaTime);
 			transform.eulerAngles = new Vector2(0, 180);
+			rightSide = false;
 		}
 	}
 
 	void jump() {
-		if (/* onFloor()  && */ Input.GetButtonDown("jump")) {
-			rb2d.AddForce (transform.up * jumpForce);
-		}
+        inFloor = Physics2D.Linecast(transform.position, floorCheker.transform.position, 1 << LayerMask.NameToLayer("Piso"));
+        if (inFloor && Input.GetButtonDown("jump")) {
+            rb2d.AddForce(transform.up * jumpForce); // rb2d.AddForce (0, jumpForce);
+        }
 	}
 
-	private bool onFloor() {
-		// GameObject floor = GameObject.FindGameObjectWithTag("Floor");
-		var onFlor = true;
-		if (onFlor) {
-			return true;
-		} else {
-			return false;
-		}
-
-	}
 }

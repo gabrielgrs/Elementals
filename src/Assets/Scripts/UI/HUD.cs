@@ -5,6 +5,10 @@ using UnityEngine.UI;
 
 public class HUD : MonoBehaviour {
 
+	public Slider SliderHP;
+	public Slider SliderMP;
+
+	public Text playerLevel;
 	public Text playerName;
 	public Text playerLife;
 	public Text playerMana;
@@ -27,17 +31,17 @@ public class HUD : MonoBehaviour {
 	
 		playerModel = player.GetComponent<PlayerModel> ();
 		enemyModel = enemy.GetComponent<EnemyModel> ();
-
 	}
 	
 
 	void Update () {
-		playerName.text = playerModel.Name;
-		playerLife.text = playerModel.Life.ToString () + "/" + playerModel.MaxLife.ToString ();
-		playerMana.text = playerModel.Mana.ToString () + "/" + playerModel.MaxMana.ToString ();
+		SliderHP.maxValue = playerModel.MaxLife;
+		SliderMP.maxValue = playerModel.MaxMana;
 
-		enemyName.text = enemyModel.Name;
-		enemyLife.text = enemyModel.Life.ToString () + "/" + enemyModel.MaxLife.ToString ();
-		enemyMana.text = enemyModel.Mana.ToString () + "/" + enemyModel.MaxMana.ToString ();
+		SliderHP.value = playerModel.Life;
+		SliderMP.value = playerModel.Mana;
+
+		playerLevel.text = playerModel.Level.ToString();
+		playerName.text = playerModel.Name;
 	}
 }
