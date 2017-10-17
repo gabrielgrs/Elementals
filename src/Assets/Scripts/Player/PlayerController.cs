@@ -23,10 +23,9 @@ public class PlayerController : MonoBehaviour {
 
 		if (finalDamage < 1) {
 			finalDamage = 1;
-			model.Life -= finalDamage;
-		} else if (finalDamage > 0) {
-			model.Life -= finalDamage;
-		}
+		} 
+		
+		model.Life -= finalDamage;
 
 		verifyLife ();
 	}

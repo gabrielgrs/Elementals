@@ -13,12 +13,14 @@ public class EnemyAI : MonoBehaviour {
 	public float coolDown;
 
 	public PlayerController playerController;
+	public PlayerModel playerModel;
 
 
 	// Use this for initialization
 	void Start () {
 		enemy = GameObject.FindGameObjectWithTag ("Enemy");
 		player = GameObject.FindGameObjectWithTag ("Player");
+		playerModel = player.gameObject.GetComponent<PlayerModel>();
 		playerController = player.GetComponent<PlayerController> ();
 
 
@@ -31,6 +33,10 @@ public class EnemyAI : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		attackVerify ();
+	}
+
+	void attack() {
+		playerController.receiveDamage (playerModel.Attack);
 	}
 
 	public void attackVerify () {
@@ -52,8 +58,5 @@ public class EnemyAI : MonoBehaviour {
 		}
 	}
 
-	public void attack() {
-		// PlayerController player = (PlayerController)target.GetComponent<PlayerController>();
-		playerController.receiveDamage (10);
-	}
+
 }
