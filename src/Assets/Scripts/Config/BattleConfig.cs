@@ -5,13 +5,13 @@ public class BattleConfig : MonoBehaviour
 {
 	private GameObject player;
 	private GameObject enemy;
-	private GameStorage gameStorage;
+	// private GameStorage gameStorage;
 
 	void Start ()
 	{
 		player = GameObject.FindGameObjectWithTag ("Player");
 		enemy = GameObject.FindGameObjectWithTag ("Enemy");
-		gameStorage = GetComponent<GameStorage> ();
+		// gameStorage = GetComponent<GameStorage> ();
 	}
 	
 
