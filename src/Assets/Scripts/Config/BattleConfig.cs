@@ -17,7 +17,7 @@ public class BattleConfig : MonoBehaviour
 
 	void Update ()
 	{
-		gameStorage.saveGame ();
+		// gameStorage.saveGame ();
 		player.transform.rotation = Quaternion.Euler(player.transform.rotation.eulerAngles.x, player.transform.rotation.eulerAngles.y, 0f);
 		enemy.transform.rotation = Quaternion.Euler(enemy.transform.rotation.eulerAngles.x, enemy.transform.rotation.eulerAngles.y, 0f);
 	}
