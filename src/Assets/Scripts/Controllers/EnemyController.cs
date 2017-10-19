@@ -9,24 +9,34 @@ public class EnemyController : MonoBehaviour {
 	public float range;
 	public float speed;
 
-	public float attackTime;
+	public float AttackTime;
 	public float coolDown;
+
+
+	public EnemyFactory enemyFactory;
+	public EnemyModel enemyModel;
 
 	public PlayerController playerController;
 	public PlayerModel playerModel;
+	public PlayerFactory playerFactory;
+	
 
 
 	// Use this for initialization
 	void Start () {
 		enemy = GameObject.FindGameObjectWithTag ("Enemy");
 		player = GameObject.FindGameObjectWithTag ("Player");
-		playerModel = player.gameObject.GetComponent<PlayerModel>();
+
+		enemyModel = enemyFactory.generateEnemy();
+
+		// playerModel = player.gameObject.GetComponent<PlayerModel>();
+		playerModel = playerFactory.generatePlayer();
 		playerController = player.GetComponent<PlayerController> ();
 
 
 		range = 10f;
 		speed = 0;
-		attackTime = 0.5f;
+		AttackTime = 0.5f;
 		coolDown = 2f;
 	}
 
@@ -35,7 +45,7 @@ public class EnemyController : MonoBehaviour {
 		attackVerify ();
 	}
 
-	void attack() {
+	void Attack() {
 		// playerController.receiveDamage (playerModel.Attack);
 	}
 
@@ -45,14 +55,14 @@ public class EnemyController : MonoBehaviour {
 			transform.Translate(Vector2.MoveTowards (enemy.transform.position, player.transform.position, range) * speed * Time.deltaTime);
 			if (range < 3f) {
 				// AttackTime
-				if (attackTime > 0) {
-					attackTime -= Time.deltaTime;
+				if (AttackTime > 0) {
+					AttackTime -= Time.deltaTime / 2;
 				} 
-				if (attackTime < 0) {
-					attackTime = 0;
+				if (AttackTime < 0) {
+					AttackTime = 0;
 				} 
-				if (attackTime == 0) {
-					attack();
+				if (AttackTime == 0) {
+					Attack();
 				}	 
 			}
 		}

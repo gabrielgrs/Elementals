@@ -8,6 +8,10 @@ TagManager:
   - ProjetilPlayer
   - Enemy
   - Inimigo
+  - Floor
+  - Magic2
+  - Magic3
+  - Magic1
   layers:
   - Default
   - TransparentFX

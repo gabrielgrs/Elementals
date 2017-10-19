@@ -6,7 +6,6 @@ public class PlayerController : MonoBehaviour {
 	private float horizontalMove;
 	private float moveSpeed = 5f;
 	private float jumpForce = 300f;
-	private bool inFloor = true;
 
 	private Rigidbody2D rb2d;
 	public Transform floorCheker;
@@ -18,10 +17,12 @@ public class PlayerController : MonoBehaviour {
 	public Collider2D attackTrigger;
 
 	private PlayerModel playerModel;
+	private PlayerFactory playerFactory;
 
 	void Start () {
 		rb2d = GetComponent<Rigidbody2D>();
 		playerModel = GetComponent<PlayerModel> ();
+		// playerModel = playerFactory.generatePlayer();
 	}
 
 
@@ -46,8 +47,7 @@ public class PlayerController : MonoBehaviour {
 			transform.eulerAngles = new Vector2(0, 180);
 		}
 
-		inFloor = true; // Physics2D.Linecast(transform.position, floorCheker.transform.position, 1 << LayerMask.NameToLayer("Floor"));
-		if (inFloor && Input.GetKeyDown(KeyCode.Space)) {
+		if (playerModel.InFloor && Input.GetKeyDown(KeyCode.Space)) {
 			rb2d.AddForce(transform.up * jumpForce);
 		}
 	}
@@ -71,6 +71,7 @@ public class PlayerController : MonoBehaviour {
 			}
 		}
 	}
+
 		
 	public void receiveDamage(int damage) {
 		print (playerModel.Life);
