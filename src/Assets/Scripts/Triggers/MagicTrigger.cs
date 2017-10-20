@@ -12,11 +12,13 @@ public class MagicTrigger : MonoBehaviour
 
     private GameObject Enemy;
     private EnemyController EnemyController;
+	private EnemyModel EnemyModel;
 
     void Start()
     {
 		Enemy = GameObject.FindGameObjectWithTag("Enemy");
 		EnemyController = Enemy.GetComponent<EnemyController>();
+		EnemyModel = Enemy.GetComponent<EnemyModel> ();
 
         Magic = GameObject.FindGameObjectWithTag("Magic");
         MagicModel = Magic.GetComponent<MagicModel>();
@@ -31,7 +33,9 @@ public class MagicTrigger : MonoBehaviour
     {
         if (collider.CompareTag("Enemy"))
         {
-			EnemyController.ReceiveDamage(MagicModel.Effect);
+			print ("Funcionei!");
+			Destroy (Magic);
+			EnemyController.ReceiveDamage(10);
         }
     }
 

@@ -12,6 +12,7 @@ TagManager:
   - Magic2
   - Magic3
   - Magic1
+  - Magic
   layers:
   - Default
   - TransparentFX

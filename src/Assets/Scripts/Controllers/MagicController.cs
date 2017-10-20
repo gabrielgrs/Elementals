@@ -22,6 +22,8 @@ public class MagicController : MonoBehaviour
         Instantiate(Magic, new Vector2(player.transform.position.x + (playerModel.FacingRight ? +0.5f : -0.5f ), player.transform.position.y), player.transform.rotation);
     }
 
+
+
     public void CastSecondMagic() { }
     public void CastThirdMagic() { }
 }

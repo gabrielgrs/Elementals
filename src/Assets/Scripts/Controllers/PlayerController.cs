@@ -20,14 +20,19 @@ public class PlayerController : MonoBehaviour
     private PlayerModel playerModel;
     private PlayerFactory playerFactory;
 
+	public GameObject magic;
     private MagicController magicController;
 
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
         playerModel = GetComponent<PlayerModel>();
-        // playerModel = playerFactory.generatePlayer();
-    }
+		// playerModel = new PlayerModel ();
+		// playerModel.Life = 10;
+		// magic = GameObject.FindGameObjectWithTag ("Magic");
+		magicController = magic.GetComponent<MagicController> ();
+  
+     }
 
 
     void Update()
@@ -95,7 +100,8 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            magicController.CastFirstMagic();
+			// magicController.CastFirstMagic();
+			Instantiate(magic, new Vector2(transform.position.x + (playerModel.FacingRight ? +1.2f : -1.2f ), transform.position.y), transform.rotation);
         }
     }
 

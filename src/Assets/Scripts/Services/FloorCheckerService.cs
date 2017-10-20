@@ -13,7 +13,7 @@ public class FloorCheckerService : MonoBehaviour {
 		rb2d = player.GetComponent<Rigidbody2D> ();
      }
 
-	void OnCollisionEnter2D(Collider2D collider) {
+	/* void OnCollisionEnter2D(Collider2D collider) {
         if (collider.gameObject.CompareTag("Floor")) {
             playerModel.InFloor = true;
         }
@@ -23,5 +23,5 @@ public class FloorCheckerService : MonoBehaviour {
         if (collider.gameObject.CompareTag("Floor")) {
             playerModel.InFloor = false;
         }
-    }
+    } */
 }
