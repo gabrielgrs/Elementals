@@ -6,8 +6,9 @@ public class AttackTrigger : MonoBehaviour
 {
     private GameObject player;
 	private PlayerModel playerModel;
-	private EnemyModel enemyModel;
 	private GameObject enemy;
+    private EnemyModel enemyModel;
+    private EnemyController enemyController;
 
     void Start()
     {
@@ -16,6 +17,7 @@ public class AttackTrigger : MonoBehaviour
 
         enemy = GameObject.FindGameObjectWithTag("Enemy");
         enemyModel = enemy.gameObject.GetComponent<EnemyModel>();
+        enemyController = enemy.gameObject.GetComponent<EnemyController>();
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -23,7 +25,7 @@ public class AttackTrigger : MonoBehaviour
 		print (enemyModel.Life);
         if (col.isTrigger != true && col.CompareTag("Enemy"))
         {
-			enemyModel.receiveDamage(playerModel.Attack);
+			enemyController.ReceiveDamage(playerModel.Attack);
 			print (enemyModel.Life);
         }
     }
