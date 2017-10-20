@@ -2,32 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MagicController : MonoBehaviour {
+public class MagicController : MonoBehaviour
+{
 
-	private GameObject skill1;
-	private GameObject skill2;
-	private GameObject skill3;
-	// private SkillModel skillModel;
-	private GameObject player;
+    private GameObject Magic;
+    // private SkillModel skillModel;
+    private GameObject player;
+    private PlayerModel playerModel;
 
-	void Start () {
-		player = GameObject.FindGameObjectWithTag ("Player");
+    void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+        Magic = GameObject.FindGameObjectWithTag("Magic");
+        playerModel = player.GetComponent<PlayerModel>();
+    }
 
-		skill1 = GameObject.FindGameObjectWithTag ("Magic1");
-		skill2 = GameObject.FindGameObjectWithTag ("Magic2");
-		skill3 = GameObject.FindGameObjectWithTag ("Magic3");
-	}
-	
+    public void CastFirstMagic()
+    {
+        Instantiate(Magic, new Vector2(player.transform.position.x + (playerModel.FacingRight ? +0.5f : -0.5f ), player.transform.position.y), player.transform.rotation);
+    }
 
-	void Update () {
-		if (Input.GetKeyDown(KeyCode.A)) {
-			Instantiate (skill1, new Vector2 (player.transform.position.x, player.transform.position.y), player.transform.rotation);
-		}
-		if (Input.GetKeyDown(KeyCode.S)) {
-			Instantiate (skill2, new Vector2 (player.transform.position.x, player.transform.position.y), player.transform.rotation);
-		}
-		if (Input.GetKeyDown(KeyCode.D)) {
-			Instantiate (skill3, new Vector2 (player.transform.position.x, player.transform.position.y), player.transform.rotation);
-		}
-	}
+    public void CastSecondMagic() { }
+    public void CastThirdMagic() { }
 }

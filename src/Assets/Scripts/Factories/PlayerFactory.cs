@@ -7,10 +7,8 @@ public class PlayerFactory : MonoBehaviour
     public PlayerService playerService;
 
     // Refazer esse método para ser dinâmico
-    public PlayerModel generatePlayer()
+    void Start()
     {
-        playerModel = new PlayerModel();
-
         playerModel.Name = "";
         playerModel.Exp = 0;
         playerModel.Level = playerService.verifyLevel(playerModel.Exp);
@@ -28,7 +26,5 @@ public class PlayerFactory : MonoBehaviour
         playerModel.FirstSkill = null;
         playerModel.SecondSkill = null;
         playerModel.ThirdSkill = null;
-
-        return playerModel;
     }
 }

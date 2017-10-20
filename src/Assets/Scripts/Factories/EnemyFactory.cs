@@ -6,10 +6,8 @@ public class EnemyFactory : MonoBehaviour
     public EnemyModel enemyModel;
 
     // Refazer esse método para ser dinâmico
-    public EnemyModel generateEnemy()
+    void Start()
     {
-        enemyModel = new EnemyModel();
-
         enemyModel.MaxLife = 100;
         enemyModel.Life = 100;
         
@@ -19,8 +17,5 @@ public class EnemyFactory : MonoBehaviour
         enemyModel.Attack = 10;
         enemyModel.Defense = 10;
         enemyModel.Died = false;
-
-
-        return enemyModel;
     }
 }
