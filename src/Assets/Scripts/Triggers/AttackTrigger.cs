@@ -22,8 +22,7 @@ public class AttackTrigger : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     { 	
-		print (enemyModel.Life);
-        if (col.isTrigger != true && col.CompareTag("Enemy"))
+		if (col.isTrigger != true && col.CompareTag("Enemy") && Input.GetKeyDown(KeyCode.F))
         {
 			enemyController.ReceiveDamage(playerModel.Attack);
 			print (enemyModel.Life);

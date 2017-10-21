@@ -20,10 +20,10 @@ public class MenuInicial : MonoBehaviour {
 
 		GUI.skin = PerSkin;
 
-		if (GUI.Button (new Rect (Screen.width / 2, Screen.height / 2, 90, 60), "Começar")) {
+		if (GUI.Button (new Rect ((float)Screen.width / 2.1f, Screen.height / 2, 90, 60), "Começar")) {
 			UnityEngine.SceneManagement.SceneManager.LoadScene ("Battle");
 		}
-		if (GUI.Button (new Rect (Screen.width / 2, Screen.height / 2 + 90, 90, 60), "Sair")) {
+		if (GUI.Button (new Rect ((float)Screen.width / 2.1f, Screen.height / 2 + 90, 90, 60), "Sair")) {
 			Application.Quit ();
 		}
 	

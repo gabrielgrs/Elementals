@@ -18,6 +18,7 @@ public class MagicTrigger : MonoBehaviour
     {
 		Enemy = GameObject.FindGameObjectWithTag("Enemy");
 		EnemyController = Enemy.GetComponent<EnemyController>();
+		EnemyController = new EnemyController ();
 		EnemyModel = Enemy.GetComponent<EnemyModel> ();
 
         Magic = GameObject.FindGameObjectWithTag("Magic");
@@ -35,7 +36,7 @@ public class MagicTrigger : MonoBehaviour
         {
 			print ("Funcionei!");
 			Destroy (Magic);
-			EnemyController.ReceiveDamage(10);
+			// EnemyController.ReceiveDamage(10);
         }
     }
 
