@@ -30,6 +30,7 @@ public class EnemyController : MonoBehaviour
 	private float timeInDirection;
 
 	public GameObject firstMagic;
+	public GameObject secondMagic;
 
 
 
@@ -56,7 +57,6 @@ public class EnemyController : MonoBehaviour
     {
 		magicCooldown -= Time.deltaTime;
         Move();
-		CastMagic ();
     }
 
     void Attack()
@@ -70,10 +70,10 @@ public class EnemyController : MonoBehaviour
         if (range < 15f)
         {
 			rotateEnemy ();
+			CastMagic ();
 			transform.Translate(new Vector2(speed * Time.deltaTime, 0));
             if (range < 3f)
             {
-				// print (range);
 				AttackCooldown();
             }
         }
@@ -130,12 +130,12 @@ public class EnemyController : MonoBehaviour
 
 	public void CastMagic()
 	{
-		
 		if (magicCooldown < 0.1f)
-		{
-			print ("tchau mundo!");
+		{	
+			//Instantiate(secondMagic, new Vector2(transform.position.x + (rightDirection ? +2f : -2f ), transform.position.y), transform.rotation);
+			//magicCooldown = 5f;
 			Instantiate(firstMagic, new Vector2(transform.position.x + (rightDirection ? +2f : -2f ), transform.position.y), transform.rotation);
-			magicCooldown = 3f;
+			magicCooldown = 5f;
 		}
 	}
 

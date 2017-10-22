@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     private float horizontalMove;
     private float moveSpeed = 5f;
-    private float jumpForce = 300f;
+    private float jumpForce = 500f;
 
     private Rigidbody2D rb2d;
     public Transform floorCheker;
@@ -75,9 +75,11 @@ public class PlayerController : MonoBehaviour
             playerModel.FacingRight = false;
         }
 
-        if (playerModel.InFloor && Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            rb2d.AddForce(transform.up * jumpForce);
+			if (transform.position.y - GameObject.FindGameObjectWithTag ("Floor").transform.position.y < -3f) {
+				rb2d.AddForce(transform.up * jumpForce);
+			}
         }
     }
 

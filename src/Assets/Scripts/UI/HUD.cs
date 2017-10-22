@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class HUD : MonoBehaviour {
 
+	public GameObject LifeHUD;
+
 	public Slider SliderHP;
 	public Slider SliderMP;
 
@@ -31,8 +33,12 @@ public class HUD : MonoBehaviour {
 	
 		playerModel = player.GetComponent<PlayerModel> ();
 		enemyModel = enemy.GetComponent<EnemyModel> ();
+		LifeHUD = GameObject.FindGameObjectWithTag ("LifeHUD");
 	}
 	
+	void FixedUpdate() {
+		LifeHUD.transform.position = new Vector2 (Screen.width / 20, Screen.height - 50);
+	}
 
 	void Update () {
 		SliderHP.maxValue = playerModel.MaxLife;
@@ -41,7 +47,7 @@ public class HUD : MonoBehaviour {
 		SliderHP.value = playerModel.Life;
 		SliderMP.value = playerModel.Mana;
 
-		playerLevel.text = playerModel.Level.ToString();
+		playerLevel.text = playerModel.Level.ToString() + 1;
 		playerName.text = playerModel.Name;
 	}
 }

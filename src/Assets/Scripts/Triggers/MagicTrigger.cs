@@ -14,6 +14,8 @@ public class MagicTrigger : MonoBehaviour
     private EnemyController EnemyController;
 	private EnemyModel EnemyModel;
 
+	private GameObject PlayerMagicDefense;
+
     void Start()
     {
 		Enemy = GameObject.FindGameObjectWithTag("Enemy");
@@ -21,13 +23,15 @@ public class MagicTrigger : MonoBehaviour
 		// EnemyController = new EnemyController ();
 		EnemyModel = Enemy.GetComponent<EnemyModel> ();
 
-        Magic = GameObject.FindGameObjectWithTag("Magic");
+        Magic = GameObject.FindGameObjectWithTag("PlayerAttackMagic");
         MagicModel = Magic.GetComponent<MagicModel>();
+	
     }
 
     void Update()
     {
         transform.Translate(new Vector2(MagicSpeed * Time.deltaTime, 0));
+
     }
 
     void OnTriggerEnter2D(Collider2D collider)
@@ -37,10 +41,10 @@ public class MagicTrigger : MonoBehaviour
 			print ("Magica acertou inimigo!!");
 			Destroy (Magic);
 		}
-
-		if (collider.CompareTag("Player"))
-		{
-			print ("Magica acertou jogador!!");
+			
+		if (collider.CompareTag ("EnemyDefenseMagic")) {
+			
+			print ("Acertou a barreira magica!");
 			Destroy (Magic);
 		}
     }
