@@ -5,7 +5,7 @@ using UnityEngine;
 public class MagicTrigger : MonoBehaviour
 {
 
-    private float MagicSpeed = 5f;
+    public float MagicSpeed = 5f;
 
     private GameObject Magic;
     private MagicModel MagicModel;
@@ -18,7 +18,7 @@ public class MagicTrigger : MonoBehaviour
     {
 		Enemy = GameObject.FindGameObjectWithTag("Enemy");
 		EnemyController = Enemy.GetComponent<EnemyController>();
-		EnemyController = new EnemyController ();
+		// EnemyController = new EnemyController ();
 		EnemyModel = Enemy.GetComponent<EnemyModel> ();
 
         Magic = GameObject.FindGameObjectWithTag("Magic");
@@ -32,12 +32,17 @@ public class MagicTrigger : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.CompareTag("Enemy"))
-        {
-			print ("Funcionei!");
+		if (collider.CompareTag("Enemy"))
+		{
+			print ("Magica acertou inimigo!!");
 			Destroy (Magic);
-			// EnemyController.ReceiveDamage(10);
-        }
+		}
+
+		if (collider.CompareTag("Player"))
+		{
+			print ("Magica acertou jogador!!");
+			Destroy (Magic);
+		}
     }
 
 

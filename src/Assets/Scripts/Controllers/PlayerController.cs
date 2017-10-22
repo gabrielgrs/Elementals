@@ -20,7 +20,12 @@ public class PlayerController : MonoBehaviour
     private PlayerModel playerModel;
     private PlayerFactory playerFactory;
 
-	public GameObject magic;
+	public GameObject firstMagic;
+	public GameObject secondMagic;
+	public GameObject thirdMagic;
+
+	private float magicCooldown ;
+
     private MagicController magicController;
 
     void Start()
@@ -30,14 +35,20 @@ public class PlayerController : MonoBehaviour
 		// playerModel = new PlayerModel ();
 		// playerModel.Life = 10;
 		// magic = GameObject.FindGameObjectWithTag ("Magic");
-		magicController = magic.GetComponent<MagicController> ();
-  
+		magicController = firstMagic.GetComponent<MagicController> ();
+
+
+		magicCooldown = 0f;
      }
 
 
     void Update()
     {
-        Move();
+		// TIMERS
+		magicCooldown -= Time.deltaTime;
+		//! TIMERS
+
+		Move();
         Attack();
         CastMagic();
     }
@@ -98,17 +109,25 @@ public class PlayerController : MonoBehaviour
 
     public void CastMagic()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+		if (Input.GetKeyDown(KeyCode.Alpha1) && magicCooldown < 0.1f)
         {
-			// magicController.CastFirstMagic();
-			Instantiate(magic, new Vector2(transform.position.x + (playerModel.FacingRight ? +1.2f : -1.2f ), transform.position.y), transform.rotation);
+			Instantiate(firstMagic, new Vector2(transform.position.x + (playerModel.FacingRight ? +1.2f : -1.2f ), transform.position.y), transform.rotation);
+			magicCooldown = 3f;
         }
+		if (Input.GetKeyDown(KeyCode.Alpha2) && magicCooldown < 0.1f) {
+			Instantiate(secondMagic, new Vector2(transform.position.x + (playerModel.FacingRight ? +1.2f : -1.2f ), transform.position.y), transform.rotation);
+			magicCooldown = 3f;
+		}
+		if (Input.GetKeyDown (KeyCode.Alpha3)) {
+			// Barreira
+			Instantiate(thirdMagic, new Vector2(transform.position.x + (playerModel.FacingRight ? +2f : -2f ), transform.position.y), transform.rotation);
+			magicCooldown = 5f;
+		}
     }
 
 
     public void receiveDamage(int damage)
     {
-        print(playerModel.Life);
         int finalDamage = playerModel.Defense - damage;
 
         if (finalDamage < 1)
