@@ -47,7 +47,7 @@ public class EnemyController : MonoBehaviour
 
         range = 10f;
         speed = 2f;
-        AttackTime = 0.5f;
+        AttackTime = 2f;
         coolDown = 2f;
 		magicCooldown = 0f;
     }
@@ -56,6 +56,7 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
 		magicCooldown -= Time.deltaTime;
+		AttackTime -= Time.deltaTime;
         Move();
     }
 
@@ -100,38 +101,35 @@ public class EnemyController : MonoBehaviour
     }
 
 	void rotateEnemy() {
-		if (transform.position.x < player.transform.position.x) {
-			rightDirection = true;
-		} else {
-			rightDirection = false;
-		}
-		if (rightDirection) {
-			transform.eulerAngles = new Vector2 (0, 0);
-		} else {
-			transform.eulerAngles = new Vector2 (0, 180);
+		if (Vector2.Distance(enemy.transform.position, player.transform.position) >2f ) {
+			if (transform.position.x < player.transform.position.x) {
+				rightDirection = true;
+			} else {
+				rightDirection = false;
+			}
+			if (rightDirection) {
+				transform.eulerAngles = new Vector2 (0, 0);
+			} else {
+				transform.eulerAngles = new Vector2 (0, 180);
+			}
 		}
 	}
 
 	public void AttackCooldown() {
-                // AttackTime
-                if (AttackTime > 0)
-                {
-                    AttackTime -= Time.deltaTime / 2;
-                }
-                if (AttackTime < 0)
-                {
-                    AttackTime = 0;
-                }
-                if (AttackTime == 0)
-                {
-                    Attack();
-                }
+        // AttackTime
+        if (AttackTime < 0.1f)
+        {
+			// AttackTime = 5f;
+            Attack();
+
+        }
 	}
 
 	public void CastMagic()
 	{
 		if (magicCooldown < 0.1f)
 		{	
+			
 			//Instantiate(secondMagic, new Vector2(transform.position.x + (rightDirection ? +2f : -2f ), transform.position.y), transform.rotation);
 			//magicCooldown = 5f;
 			Instantiate(firstMagic, new Vector2(transform.position.x + (rightDirection ? +2f : -2f ), transform.position.y), transform.rotation);

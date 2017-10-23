@@ -47,7 +47,13 @@ public class MagicTrigger : MonoBehaviour
 			print ("Acertou a barreira magica!");
 			Destroy (Magic);
 		}
+
+		if (collider.CompareTag ("EnemyAttackMagic")) {
+			Destroy (Magic);
+		}
     }
+
+
 
 
 }

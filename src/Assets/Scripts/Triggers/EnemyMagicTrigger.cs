@@ -12,11 +12,17 @@ public class EnemyMagicTrigger : MonoBehaviour
 
 	public GameObject GameOver;
 
+	public GameObject player;
+	public PlayerModel playerModel;
+
 
 	void Start()
 	{
 		Magic = GameObject.FindGameObjectWithTag("EnemyAttackMagic");
 		MagicModel = Magic.GetComponent<MagicModel>();
+
+		player = GameObject.FindGameObjectWithTag ("Player");
+		playerModel = player.GetComponent<PlayerModel> ();
 	}
 
 	void Update()
@@ -29,6 +35,7 @@ public class EnemyMagicTrigger : MonoBehaviour
 		if (collider.CompareTag("PlayerBody"))
 		{
 			print ("Magica acertou jogador!!");
+			playerModel.Life -= 30;
 			Destroy (Magic);
 
 		}
@@ -37,6 +44,10 @@ public class EnemyMagicTrigger : MonoBehaviour
 			print ("Acertou a barreira magica!");
 			Destroy (Magic);
 			Destroy (GameObject.FindGameObjectWithTag ("PlayerDefenseMagic"));
+		}
+
+		if (collider.CompareTag ("PlayerAttackMagic")) {
+			Destroy (Magic);
 		}
 	}
 
