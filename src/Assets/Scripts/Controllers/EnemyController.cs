@@ -148,5 +148,9 @@ public class EnemyController : MonoBehaviour
         }
 
         enemyModel.Life -= finalDamage;
+
+		if (enemyModel.Life < 1) {
+			Destroy(GameObject.FindGameObjectWithTag("Enemy"));
+		}
     }
 }

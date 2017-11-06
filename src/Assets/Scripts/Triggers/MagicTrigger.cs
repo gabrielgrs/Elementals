@@ -39,6 +39,7 @@ public class MagicTrigger : MonoBehaviour
 		if (collider.CompareTag("Enemy"))
 		{
 			print ("Magica acertou inimigo!!");
+			EnemyModel.Life -= 20;
 			Destroy (Magic);
 		}
 			

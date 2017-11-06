@@ -21,6 +21,8 @@ TagManager:
   - EnemyAttackMagic
   - PlayerDefenseMagic
   - GameOver
+  - PlayerDamage
+  - EnemyDamage
   layers:
   - Default
   - TransparentFX
