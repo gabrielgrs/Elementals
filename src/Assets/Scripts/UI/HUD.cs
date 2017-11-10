@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class HUD : MonoBehaviour {
 
-	public GameObject LifeHUD;
-
 	public Slider SliderHP;
 	public Slider SliderMP;
 
@@ -26,14 +24,18 @@ public class HUD : MonoBehaviour {
 	public GameObject enemy;
 	public EnemyModel enemyModel;
 
+	public GameObject LifeHUD;
+
+
 	void Start () {
 		player = GameObject.FindGameObjectWithTag ("Player");
 		enemy = GameObject.FindGameObjectWithTag ("Enemy");
-
 	
 		playerModel = player.GetComponent<PlayerModel> ();
 		enemyModel = enemy.GetComponent<EnemyModel> ();
+
 		LifeHUD = GameObject.FindGameObjectWithTag ("LifeHUD");
+	
 	}
 	
 	void FixedUpdate() {

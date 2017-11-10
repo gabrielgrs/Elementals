@@ -23,7 +23,12 @@ public class MenuInicial : MonoBehaviour {
 		if (GUI.Button (new Rect ((float)Screen.width / 2.1f, Screen.height / 2, 90, 60), "Começar")) {
 			UnityEngine.SceneManagement.SceneManager.LoadScene ("Battle");
 		}
-		if (GUI.Button (new Rect ((float)Screen.width / 2.1f, Screen.height / 2 + 90, 90, 60), "Sair")) {
+
+		if (GUI.Button (new Rect ((float)Screen.width / 2.1f, Screen.height / 2 + 90, 90, 60), "Missões")) {
+			UnityEngine.SceneManagement.SceneManager.LoadScene ("Cidade");
+		}
+
+		if (GUI.Button (new Rect ((float)Screen.width / 2.1f, Screen.height / 2 + 180, 90, 60), "Sair")) {
 			Application.Quit ();
 		}
 	
