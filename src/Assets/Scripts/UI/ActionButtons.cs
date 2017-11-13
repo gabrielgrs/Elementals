@@ -17,9 +17,18 @@ public class ActionButtons : MonoBehaviour {
 
 	public Button pause;
 
-	public GameObject button;
+	//public GameObject button;
 
-	void Start() {		
+	private PlayerModel playerModel;
+	//private float moveSpeed = 5f;
+
+	void Start() {
+
+		playerModel = GetComponent<PlayerModel>();
+		Button left = leftArrow.GetComponent<Button> ();
+		left.onClick.AddListener (TaskOnClick);
+
+		//button.transform.position = new Vector2((float)Screen.width / 2.0f,  (float)Screen.heigth / 2.0f);F
 		//leftArrow = button.GetComponent<Button> ();
 	}
 
@@ -29,5 +38,11 @@ public class ActionButtons : MonoBehaviour {
 
 		//transform.position = new Vector2 ((float)Screen.width / 2.0f);
 		//transform.position = new Vector2 ((float)Screen.heigth / 2.0f);
+	}
+
+	void TaskOnClick(){
+		Debug.Log ("You have clicked the button!");
+		//if (Input.GetButtonDown("button")) {
+		//}
 	}
 }
