@@ -19,12 +19,12 @@ public class ActionButtons : MonoBehaviour {
 
 	//public GameObject button;
 
-	private PlayerModel playerModel;
+	//private PlayerModel playerModel;
 	//private float moveSpeed = 5f;
 
 	void Start() {
 
-		playerModel = GetComponent<PlayerModel>();
+		//playerModel = GetComponent<PlayerModel>();
 		Button left = leftArrow.GetComponent<Button> ();
 		left.onClick.AddListener (TaskOnClick);
 

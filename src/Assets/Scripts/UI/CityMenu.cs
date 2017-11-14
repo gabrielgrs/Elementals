@@ -6,12 +6,10 @@ public class CityMenu : MonoBehaviour {
 
 	public GUISkin PerSkin;
 
-	// Use this for initialization
 	void Start () {
 
 	}
 
-	// Update is called once per frame
 	void Update () {
 
 	}
@@ -20,8 +18,16 @@ public class CityMenu : MonoBehaviour {
 
 		GUI.skin = PerSkin;
 
-		if (GUI.Button (new Rect ((float)Screen.width / 2.1f, Screen.height / 2, 90, 60), "Batalhar")) {
+		if (GUI.Button (new Rect ((float)Screen.width / 2.1f, Screen.height / 2, 90, 60), "Batalha")) {
 			UnityEngine.SceneManagement.SceneManager.LoadScene ("Battle");
+		}
+
+		if (GUI.Button (new Rect ((float)Screen.width / 2.1f, Screen.height / 2 + 45, 90, 60), "Loja")) {
+			UnityEngine.SceneManagement.SceneManager.LoadScene ("Shop");
+		}
+
+		if (GUI.Button (new Rect ((float)Screen.width / 2.1f, Screen.height / 2 + 90, 90, 60), "Voltar")) {
+			UnityEngine.SceneManagement.SceneManager.LoadScene ("MenuInicial");
 		}
 
 	}
