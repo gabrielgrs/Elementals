@@ -43,6 +43,7 @@ public class EnemyController : MonoBehaviour
 
         enemyModel = enemy.GetComponent<EnemyModel>();
         playerModel = player.gameObject.GetComponent<PlayerModel>();
+		// playerModel = new PlayerModel ();
         playerController = player.GetComponent<PlayerController>();
 
         range = 10f;
@@ -59,11 +60,7 @@ public class EnemyController : MonoBehaviour
 		AttackTime -= Time.deltaTime;
         Move();
     }
-
-    void Attack()
-    {
-        playerController.receiveDamage (enemyModel.Attack);
-    }
+		
 
     public void Move()
     {
@@ -116,13 +113,11 @@ public class EnemyController : MonoBehaviour
 	}
 
 	public void AttackCooldown() {
-        // AttackTime
-        if (AttackTime < 0.1f)
-        {
-			// AttackTime = 5f;
-            Attack();
-
-        }
+		bool attacking;
+		if (AttackTime < 1f) {
+			playerController.receiveDamage (enemyModel.Attack);
+			AttackTime = 3f;
+		}
 	}
 
 	public void CastMagic()

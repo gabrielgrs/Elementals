@@ -117,12 +117,12 @@ public class PlayerController : MonoBehaviour
 			magicCooldown = 3f;
 			playerModel.Mana -= 20;
         }
-		if (Input.GetKeyDown(KeyCode.Alpha2) && magicCooldown < 0.1f && playerModel.Mana > 19) {
+		if (Input.GetKeyDown(KeyCode.Alpha2) && magicCooldown < 0.1f && playerModel.Mana > 19 && playerModel.Level > 5) {
 			Instantiate(secondMagic, new Vector2(transform.position.x + (playerModel.FacingRight ? +1.2f : -1.2f ), transform.position.y), transform.rotation);
 			magicCooldown = 3f;
 			playerModel.Mana -= 20;
 		}
-		if (Input.GetKeyDown (KeyCode.Alpha3) && playerModel.Mana > 19) {
+		if (Input.GetKeyDown (KeyCode.Alpha3) && playerModel.Mana > 19 && playerModel.Level > 7) {
 			// Barreira
 			Instantiate(thirdMagic, new Vector2(transform.position.x + (playerModel.FacingRight ? +2f : -2f ), transform.position.y), transform.rotation);
 			magicCooldown = 5f;
@@ -132,7 +132,7 @@ public class PlayerController : MonoBehaviour
 
     public void receiveDamage(int damage)
     {
-        int finalDamage = playerModel.Defense - damage;
+		int finalDamage = damage - playerModel.Defense;
 
         if (finalDamage < 1)
         {

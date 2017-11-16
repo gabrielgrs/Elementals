@@ -5,6 +5,8 @@ public class GameStorage : MonoBehaviour {
 
 	public PlayerModel playerModel;
 
+	public GameStorage() { }
+
 	public void saveGame() {
 		PlayerPrefs.SetString("PlayerName", playerModel.Name);
 		PlayerPrefs.SetInt("PlayerLevel", playerModel.Level);
