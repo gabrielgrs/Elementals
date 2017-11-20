@@ -28,9 +28,21 @@ public class PlayerModel : MonoBehaviour {
 	// Estados
 	public bool InFloor { get; set; }
 	public bool FacingRight { get; set; }
-	
+
 	void Start () {
-		Name = "Batatão"; MaxLife = 100; Life = 100; MaxMana = 100; Mana = 100; Attack = 10; Defense = 10;	Died = false; Gold = 0;	Exp = 1; Level = 0; InFloor = true; FacingRight = true;
+		Name = "Batatão"; 
+		MaxLife = 100; 
+		Life = 100; 
+		MaxMana = 100; 
+		Mana = 100; 
+		Attack = 10; 
+		Defense = 10;	
+		Died = false; 
+		Gold = 0;	
+		Exp = 30; 
+		Level = 3; 
+		InFloor = true; 
+		FacingRight = true;
 	}
 
 

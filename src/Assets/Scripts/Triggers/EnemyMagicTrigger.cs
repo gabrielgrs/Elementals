@@ -14,6 +14,7 @@ public class EnemyMagicTrigger : MonoBehaviour
 
 	public GameObject player;
 	public PlayerModel playerModel;
+	public PlayerController playerController;
 
 
 	void Start()
@@ -23,6 +24,7 @@ public class EnemyMagicTrigger : MonoBehaviour
 
 		player = GameObject.FindGameObjectWithTag ("Player");
 		playerModel = player.GetComponent<PlayerModel> ();
+		playerController = player.GetComponent<PlayerController> ();
 	}
 
 	void Update()
@@ -35,7 +37,8 @@ public class EnemyMagicTrigger : MonoBehaviour
 		if (collider.CompareTag("PlayerBody"))
 		{
 			print ("Magica acertou jogador!!");
-			playerModel.Life -= 30;
+			// playerModel.Life -= 30;
+			playerController.receiveDamage (30);
 			Destroy (Magic);
 		}
 
@@ -46,6 +49,10 @@ public class EnemyMagicTrigger : MonoBehaviour
 		}
 
 		if (collider.CompareTag ("PlayerAttackMagic")) {
+			Destroy (Magic);
+		}
+
+		if (collider.CompareTag ("Limit")) {
 			Destroy (Magic);
 		}
 	}

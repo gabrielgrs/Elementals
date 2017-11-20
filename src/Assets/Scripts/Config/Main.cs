@@ -1,19 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
 public class Main : MonoBehaviour
 {
-	public GameStorage GameStorage;
+	public GameStorage gameStorage;
 
 	void Start ()
 	{
-		
+		gameStorage = GetComponent<GameStorage> ();
+		print ("Main.Start() chamado!");
 	}
-
 
 	void FixedUpdate ()
 	{
-		GameStorage.saveGame ();
+		gameStorage.loadGame ();
 	}
+		
 }
 

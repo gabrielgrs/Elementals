@@ -12,6 +12,8 @@ public class EnemyModel : MonoBehaviour
     public int MaxMana;
     public int Mana;
 
+	public int ExpBonus;
+
     public int Attack;
     public int Defense;
     public bool Died;
@@ -33,6 +35,8 @@ public class EnemyModel : MonoBehaviour
         Attack = 10;
         Defense = 10;
         Died = false;
+
+		ExpBonus = 10;
     }
 
     public void receiveDamage(int damage)

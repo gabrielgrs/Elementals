@@ -23,6 +23,7 @@ TagManager:
   - GameOver
   - PlayerDamage
   - EnemyDamage
+  - Limit
   layers:
   - Default
   - TransparentFX

@@ -61,6 +61,7 @@ public class EnemyController : MonoBehaviour
         Move();
     }
 		
+		
 
     public void Move()
     {
@@ -113,7 +114,6 @@ public class EnemyController : MonoBehaviour
 	}
 
 	public void AttackCooldown() {
-		bool attacking;
 		if (AttackTime < 1f) {
 			playerController.receiveDamage (enemyModel.Attack);
 			AttackTime = 3f;
@@ -135,7 +135,7 @@ public class EnemyController : MonoBehaviour
     public void ReceiveDamage(int damage)
     {
         print(enemyModel.Life);
-        int finalDamage = enemyModel.Defense - damage;
+		int finalDamage = damage - enemyModel.Defense;
 
         if (finalDamage < 1)
         {
@@ -145,7 +145,8 @@ public class EnemyController : MonoBehaviour
         enemyModel.Life -= finalDamage;
 
 		if (enemyModel.Life < 1) {
-			Destroy(GameObject.FindGameObjectWithTag("Enemy"));
+			playerController.receiveExp(enemyModel.ExpBonus);
+			Destroy(enemy);
 		}
     }
 }

@@ -19,11 +19,15 @@ public class PlayerController : MonoBehaviour
 
     private PlayerModel playerModel;
     private PlayerFactory playerFactory;
+	private PlayerService playerService;
 
 	public GameObject firstMagic;
 	public GameObject secondMagic;
 	public GameObject thirdMagic;
 
+
+	private float lifeRecoveryCooldown;
+	private float manaRecoveryCooldown;
 	private float magicCooldown ;
 
     private MagicController magicController;
@@ -32,15 +36,21 @@ public class PlayerController : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         playerModel = GetComponent<PlayerModel>();
+		playerService = GetComponent<PlayerService> ();
 		// playerModel = new PlayerModel ();
 		// playerModel.Life = 10;
 		// magic = GameObject.FindGameObjectWithTag ("Magic");
 		magicController = firstMagic.GetComponent<MagicController> ();
 
-
+		lifeRecoveryCooldown = 3f;
+		manaRecoveryCooldown = 3f;
 		magicCooldown = 0f;
      }
 
+	void FixedUpdate()
+	{
+		playerService.verifyLevel (playerModel.Exp);
+	}
 
     void Update()
     {
@@ -51,12 +61,27 @@ public class PlayerController : MonoBehaviour
 		Move();
         Attack();
         CastMagic();
+
+		recoveryStats ();
     }
 
     void Awake()
     {
         attackTrigger.enabled = false;
     }
+
+	public void recoveryStats() {
+		lifeRecoveryCooldown -= Time.deltaTime;
+		manaRecoveryCooldown -= Time.deltaTime;
+		if (lifeRecoveryCooldown < 0.1f) {
+			playerModel.Life += 5;
+			lifeRecoveryCooldown = 3f;
+		}
+		if (manaRecoveryCooldown < 0.1f) {
+			playerModel.Mana += 5;
+			manaRecoveryCooldown = 3f;
+		}
+	}
 
     public void Move()
     {
@@ -145,4 +170,9 @@ public class PlayerController : MonoBehaviour
 			Destroy (GameObject.FindGameObjectWithTag("Player"));
 		}
     }
+
+	public void receiveExp(int _exp) {
+		print ("Jogador recebeu experiencia: " + _exp);
+		playerModel.Exp = _exp;
+	}
 }

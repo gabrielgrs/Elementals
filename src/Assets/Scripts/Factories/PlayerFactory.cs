@@ -27,4 +27,6 @@ public class PlayerFactory : MonoBehaviour
         playerModel.SecondSkill = null;
         playerModel.ThirdSkill = null;
     }
+
+
 }

@@ -5,6 +5,8 @@ public class PlayerService : MonoBehaviour
     public GameObject Player;
     public PlayerModel PlayerModel;
 
+	public PlayerService() { }
+
     void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
@@ -23,12 +25,12 @@ public class PlayerService : MonoBehaviour
         if (_exp < 186) return 8;
         if (_exp < 301) return 9;
 
-        return -1;
+        else return -1;
     }
 
-    public void VerifyStats()
+	public void VerifyStats(int _level)
     {
-        switch (PlayerModel.Level)
+        switch (_level)
         {
             case 1:
                 PlayerModel.MaxLife = 0;

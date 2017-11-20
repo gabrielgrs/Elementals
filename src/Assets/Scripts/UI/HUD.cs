@@ -34,22 +34,20 @@ public class HUD : MonoBehaviour {
 		playerModel = player.GetComponent<PlayerModel> ();
 		enemyModel = enemy.GetComponent<EnemyModel> ();
 
-		LifeHUD = GameObject.FindGameObjectWithTag ("LifeHUD");
+		// LifeHUD = GameObject.FindGameObjectWithTag ("LifeHUD");
 	
 	}
 	
 	void FixedUpdate() {
 		LifeHUD.transform.position = new Vector2 (Screen.width / 20, Screen.height - 50);
-	}
 
-	void Update () {
 		SliderHP.maxValue = playerModel.MaxLife;
 		SliderMP.maxValue = playerModel.MaxMana;
 
 		SliderHP.value = playerModel.Life;
 		SliderMP.value = playerModel.Mana;
 
-		playerLevel.text = playerModel.Level.ToString() + 1;
+		playerLevel.text = playerModel.Level != 0 ? playerModel.Level.ToString() : "??\t" ;
 		playerName.text = playerModel.Name;
 	}
 }
