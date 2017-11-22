@@ -61,8 +61,8 @@ public class PlayerController : MonoBehaviour
 		Move();
         Attack();
         CastMagic();
-
-		recoveryStats ();
+        UsePotion();
+		// recoveryStats ();
     }
 
     void Awake()
@@ -86,14 +86,14 @@ public class PlayerController : MonoBehaviour
     public void Move()
     {
         // Move para a direita
-        if (Input.GetAxisRaw("Horizontal") > 0)
+        if (/*Input.GetAxisRaw("Horizontal") > 0 ||*/ Input.GetKey(KeyCode.RightArrow))
         {
             transform.Translate(moveSpeed * Vector2.right * Time.deltaTime);
             transform.eulerAngles = new Vector2(0, 0);
             playerModel.FacingRight = true;
         }
         // Move para a esquerda
-        if (Input.GetAxisRaw("Horizontal") < 0)
+        if (/*Input.GetAxisRaw("Horizontal") < 0 || */Input.GetKey(KeyCode.LeftArrow))
         {
             transform.Translate(moveSpeed * Vector2.right * Time.deltaTime);
             transform.eulerAngles = new Vector2(0, 180);
@@ -155,6 +155,33 @@ public class PlayerController : MonoBehaviour
 		}
     }
 
+    public void UsePotion()
+    {
+        if (Input.GetKeyDown(KeyCode.A) && playerModel.LifePotion > 0)
+        {
+            playerModel.Life += 10;
+            playerModel.LifePotion -= 1;
+
+            if (playerModel.Life > playerModel.MaxLife)
+            {
+                playerModel.Life = playerModel.MaxLife;
+            }
+            print("Poção de Mana utilizada!");
+        }
+
+        if (Input.GetKeyDown(KeyCode.S) && playerModel.ManaPotion > 0)
+        {
+            playerModel.Mana += 10;
+            playerModel.ManaPotion -= 1;
+
+            if (playerModel.Mana > playerModel.MaxMana)
+            {
+                playerModel.Mana = playerModel.MaxMana;
+            }
+            print("Poção de Vida utilizada!");
+        }
+    }
+
     public void receiveDamage(int damage)
     {
 		int finalDamage = damage - playerModel.Defense;
@@ -173,6 +200,12 @@ public class PlayerController : MonoBehaviour
 
 	public void receiveExp(int _exp) {
 		print ("Jogador recebeu experiencia: " + _exp);
-		playerModel.Exp = _exp;
+		playerModel.Exp += _exp;
 	}
+
+    public void receiveGold(int _gold)
+    {
+        print("Jogador recebeu gold: " + _gold);
+        playerModel.Gold += _gold;
+    }
 }

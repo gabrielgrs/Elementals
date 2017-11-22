@@ -17,6 +17,9 @@ public class HUD : MonoBehaviour {
 	public Text enemyLife;
 	public Text enemyMana;
 
+    public Text lifePotionQuantity;
+    public Text manaPotionQuantity;
+
 	public GameObject player;
 	public PlayerController playerController;
 	public PlayerModel playerModel;
@@ -49,5 +52,8 @@ public class HUD : MonoBehaviour {
 
 		playerLevel.text = playerModel.Level != 0 ? playerModel.Level.ToString() : "??\t" ;
 		playerName.text = playerModel.Name;
+
+        lifePotionQuantity.text = playerModel.LifePotion.ToString();
+        manaPotionQuantity.text = playerModel.ManaPotion.ToString();
 	}
 }

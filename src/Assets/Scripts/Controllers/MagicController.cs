@@ -23,7 +23,7 @@ public class MagicController : MonoBehaviour
     }
 
 
-
     public void CastSecondMagic() { }
+
     public void CastThirdMagic() { }
 }

@@ -24,6 +24,8 @@ public class PlayerModel : MonoBehaviour {
 	public string SecondSkill { get; set; }
 	public string ThirdSkill { get; set; }
 
+    public int LifePotion { get; set; }
+    public int ManaPotion { get; set; }
 
 	// Estados
 	public bool InFloor { get; set; }
@@ -40,7 +42,11 @@ public class PlayerModel : MonoBehaviour {
 		Died = false; 
 		Gold = 0;	
 		Exp = 30; 
-		Level = 3; 
+		Level = 3;
+
+        LifePotion = 3;
+        ManaPotion = 3;
+
 		InFloor = true; 
 		FacingRight = true;
 	}
