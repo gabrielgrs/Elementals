@@ -19,7 +19,7 @@ public class CityMenu : MonoBehaviour {
 		GUI.skin = PerSkin;
 
 		if (GUI.Button (new Rect ((float)Screen.width / 2.1f, Screen.height / 2, 90, 60), "Batalha")) {
-			UnityEngine.SceneManagement.SceneManager.LoadScene ("Battle");
+			UnityEngine.SceneManagement.SceneManager.LoadScene ("SelectStage");
 		}
 
 		if (GUI.Button (new Rect ((float)Screen.width / 2.1f, Screen.height / 2 + 45, 90, 60), "Loja")) {

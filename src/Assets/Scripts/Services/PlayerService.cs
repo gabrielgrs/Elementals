@@ -11,7 +11,33 @@ public class PlayerService : MonoBehaviour
     {
         Player = GameObject.FindGameObjectWithTag("Player");
         PlayerModel = Player.GetComponent<PlayerModel>();
+
+        PlayerModel.Name = "Batatão";
+
+        PlayerModel.Died = false;
+        PlayerModel.Gold = 0;
+        PlayerModel.Exp = 30;
+
+        PlayerModel.Life = 100; // PlayerModel.MaxLife;
+        PlayerModel.Mana = 100; // PlayerModel.MaxMana;
+
+        PlayerModel.LifePotion = 3;
+        PlayerModel.ManaPotion = 3;
+
+        PlayerModel.InFloor = true;
+        PlayerModel.FacingRight = true;
+
+        
     }
+
+    void FixedUpdate()
+    {
+        PlayerModel.Level = verifyLevel(PlayerModel.Exp);
+        VerifyStats(PlayerModel.Level);
+
+    }
+
+
 
     public int verifyLevel(int _exp)
     {
@@ -33,12 +59,10 @@ public class PlayerService : MonoBehaviour
         switch (_level)
         {
             case 1:
-                PlayerModel.MaxLife = 0;
-                PlayerModel.Life = 0;
-                PlayerModel.MaxMana = 0;
-                PlayerModel.Mana = 0;
-                PlayerModel.Attack = 0;
-                PlayerModel.Defense = 0;
+                PlayerModel.MaxLife = 100;
+                PlayerModel.MaxMana = 100;
+                PlayerModel.Attack = 10;
+                PlayerModel.Defense = 10;
                 break;
             case 2:
                 PlayerModel.MaxLife = 0;

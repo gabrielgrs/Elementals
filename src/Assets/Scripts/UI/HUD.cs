@@ -50,7 +50,7 @@ public class HUD : MonoBehaviour {
 		SliderHP.value = playerModel.Life;
 		SliderMP.value = playerModel.Mana;
 
-		playerLevel.text = playerModel.Level != 0 ? playerModel.Level.ToString() : "??\t" ;
+        playerLevel.text = playerModel.Level != 0 ? (playerModel.Level < 10 ? "0" + playerModel.Level.ToString() : playerModel.Level.ToString()) : "??\t";
 		playerName.text = playerModel.Name;
 
         lifePotionQuantity.text = playerModel.LifePotion.ToString();

@@ -20,3 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Shop.unity
     guid: 3fa8cbea4cd15fb43bd9aa72f7bd8c4f
+  - enabled: 1
+    path: Assets/Scenes/CreatePlayer.unity
+    guid: 1e34f15cd550ec8418f4bd966c0e5452
+  - enabled: 1
+    path: Assets/Scenes/SelectStage.unity
+    guid: 4a52654ed9038d04a8db9dd4cad4012b
