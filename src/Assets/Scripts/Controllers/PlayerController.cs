@@ -33,18 +33,12 @@ public class PlayerController : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         playerModel = GetComponent<PlayerModel>();
 		playerService = GetComponent<PlayerService> ();
-		// playerModel = new PlayerModel ();
-		// playerModel.Life = 10;
+
 		// magic = GameObject.FindGameObjectWithTag ("Magic");
 		magicController = firstMagic.GetComponent<MagicController> ();
 
 		magicCooldown = 0f;
-     }
-
-	void FixedUpdate()
-	{
-		playerService.verifyLevel (playerModel.Exp);
-	}
+    }
 
     void Update()
     {

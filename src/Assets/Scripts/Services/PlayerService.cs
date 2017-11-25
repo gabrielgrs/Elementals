@@ -2,37 +2,33 @@ using UnityEngine;
 
 public class PlayerService : MonoBehaviour
 {
-    public GameObject Player;
-    public PlayerModel PlayerModel;
-
-	public PlayerService() { }
+    public GameObject player;
+    public PlayerModel playerModel;
 
     void Start() {   }
 
 	void Awake() {
-		Player = GameObject.FindGameObjectWithTag("Player");
-		PlayerModel = Player.GetComponent<PlayerModel>();
+		player = GameObject.FindGameObjectWithTag("Player");
+		playerModel = player.GetComponent<PlayerModel>();
 
-		PlayerModel.Name = PlayerPrefs.GetString("Name") != "" ? PlayerPrefs.GetString("Name") : "Sem Nome!";
+		playerModel.Name = PlayerPrefs.GetString("Name") != "" ? PlayerPrefs.GetString("Name") : "Sem Nome!";
 
-		PlayerModel.Died = false;
-		PlayerModel.Gold = PlayerPrefs.GetInt("PlayerGold");
-		PlayerModel.Exp = PlayerPrefs.GetInt("PlayerExp");
+		playerModel.Died = false;
+		playerModel.Gold = PlayerPrefs.GetInt("PlayerGold");
+		playerModel.Exp = PlayerPrefs.GetInt("PlayerExp") + 300;
 
-		PlayerModel.Life = PlayerModel.MaxLife = 100;
-		PlayerModel.Mana = PlayerModel.MaxMana = 100;
+		playerModel.Life = playerModel.MaxLife = 100;
+		playerModel.Mana = playerModel.MaxMana = 100;
 
-		PlayerModel.LifePotion = 3;
-		PlayerModel.ManaPotion = 3;
+		playerModel.LifePotion = 3;
+		playerModel.ManaPotion = 3;
 
-		PlayerModel.InFloor = true;
-		PlayerModel.FacingRight = true; 
+		playerModel.InFloor = true;
+		playerModel.FacingRight = true;
 
-		PlayerModel.Level = verifyLevel(PlayerModel.Exp);
-		VerifyStats(PlayerModel.Level);
+		playerModel.Level = verifyLevel(playerModel.Exp);
+		VerifyStats(playerModel.Level);
 	}
-
-
 
     public int verifyLevel(int _exp)
     {
@@ -54,77 +50,77 @@ public class PlayerService : MonoBehaviour
         switch (_level)
         {
             case 1:
-                PlayerModel.MaxLife = 100;
-                PlayerModel.MaxMana = 100;
-                PlayerModel.Attack = 10;
-                PlayerModel.Defense = 10;
+                playerModel.MaxLife = 100;
+                playerModel.MaxMana = 100;
+                playerModel.Attack = 10;
+                playerModel.Defense = 10;
                 break;
             case 2:
-                PlayerModel.MaxLife = 120;
-                PlayerModel.Life = 120;
-                PlayerModel.MaxMana = 120;
-                PlayerModel.Mana = 120;
-                PlayerModel.Attack = 12;
-                PlayerModel.Defense = 12;
+                playerModel.MaxLife = 120;
+                playerModel.Life = 120;
+                playerModel.MaxMana = 120;
+                playerModel.Mana = 120;
+                playerModel.Attack = 12;
+                playerModel.Defense = 12;
                 break;
             case 3:
-                PlayerModel.MaxLife = 150;
-                PlayerModel.Life = 150;
-                PlayerModel.MaxMana = 150;
-                PlayerModel.Mana = 150;
-                PlayerModel.Attack = 15;
-                PlayerModel.Defense = 15;
+                playerModel.MaxLife = 150;
+                playerModel.Life = 150;
+                playerModel.MaxMana = 150;
+                playerModel.Mana = 150;
+                playerModel.Attack = 15;
+                playerModel.Defense = 15;
                 break;
             case 4:
-                PlayerModel.MaxLife = 200;
-                PlayerModel.Life = 200;
-                PlayerModel.MaxMana = 200;
-                PlayerModel.Mana = 200;
-                PlayerModel.Attack = 20;
-                PlayerModel.Defense = 20;
+                playerModel.MaxLife = 200;
+                playerModel.Life = 200;
+                playerModel.MaxMana = 200;
+                playerModel.Mana = 200;
+                playerModel.Attack = 20;
+                playerModel.Defense = 20;
                 break;
             case 5:
-                PlayerModel.MaxLife = 250;
-                PlayerModel.Life = 250;
-                PlayerModel.MaxMana = 250;
-                PlayerModel.Mana = 250;
-                PlayerModel.Attack = 25;
-                PlayerModel.Defense = 25;
+                playerModel.MaxLife = 250;
+                playerModel.Life = 250;
+                playerModel.MaxMana = 250;
+                playerModel.Mana = 250;
+                playerModel.Attack = 25;
+                playerModel.Defense = 25;
                 break;
             case 6:
-                PlayerModel.MaxLife = 300;
-                PlayerModel.Life = 300;
-                PlayerModel.MaxMana = 300;
-                PlayerModel.Mana = 300;
-                PlayerModel.Attack = 30;
-                PlayerModel.Defense = 30;
+                playerModel.MaxLife = 300;
+                playerModel.Life = 300;
+                playerModel.MaxMana = 300;
+                playerModel.Mana = 300;
+                playerModel.Attack = 30;
+                playerModel.Defense = 30;
                 break;
             case 7:
-                PlayerModel.MaxLife = 350;
-                PlayerModel.Life = 350;
-                PlayerModel.MaxMana = 350;
-                PlayerModel.Mana = 350;
-                PlayerModel.Attack = 35;
-                PlayerModel.Defense = 35;
+                playerModel.MaxLife = 350;
+                playerModel.Life = 350;
+                playerModel.MaxMana = 350;
+                playerModel.Mana = 350;
+                playerModel.Attack = 35;
+                playerModel.Defense = 35;
                 break;
             case 8:
-                PlayerModel.MaxLife = 400;
-                PlayerModel.Life = 400;
-                PlayerModel.MaxMana = 400;
-                PlayerModel.Mana = 400;
-                PlayerModel.Attack = 40;
-                PlayerModel.Defense = 40;
+                playerModel.MaxLife = 400;
+                playerModel.Life = 400;
+                playerModel.MaxMana = 400;
+                playerModel.Mana = 400;
+                playerModel.Attack = 40;
+                playerModel.Defense = 40;
                 break;
             case 9:
-                PlayerModel.MaxLife = 450;
-                PlayerModel.Life = 450;
-                PlayerModel.MaxMana = 450;
-                PlayerModel.Mana = 450;
-                PlayerModel.Attack = 45;
-                PlayerModel.Defense = 45;
+                playerModel.MaxLife = 450;
+                playerModel.Life = 450;
+                playerModel.MaxMana = 450;
+                playerModel.Mana = 450;
+                playerModel.Attack = 45;
+                playerModel.Defense = 45;
                 break;
 			default: 
-				PlayerModel.Name = "Default";
+				playerModel.Name = "Default";
 				break;
         }
     }

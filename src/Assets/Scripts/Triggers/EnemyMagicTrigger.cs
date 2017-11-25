@@ -16,8 +16,11 @@ public class EnemyMagicTrigger : MonoBehaviour
 	public PlayerModel playerModel;
 	public PlayerController playerController;
 
+	public GameObject enemy;
+	public EnemyModel enemyModel;
 
-	void Start()
+
+	void Awake()
 	{
 		Magic = GameObject.FindGameObjectWithTag("EnemyAttackMagic");
 		MagicModel = Magic.GetComponent<MagicModel>();
@@ -25,6 +28,10 @@ public class EnemyMagicTrigger : MonoBehaviour
 		player = GameObject.FindGameObjectWithTag ("Player");
 		playerModel = player.GetComponent<PlayerModel> ();
 		playerController = player.GetComponent<PlayerController> ();
+
+		//enemy = GameObject.FindGameObjectWithTag ("Enemy");
+		//enemyModel = enemy.gameObject.GetComponent<EnemyModel> ();
+
 	}
 
 	void Update()

@@ -15,6 +15,7 @@ public class EnemyController : MonoBehaviour
     public float coolDown;
 
     public EnemyModel enemyModel;
+	public EnemyService enemyService;
 
     public PlayerController playerController;
     public PlayerModel playerModel;
@@ -32,16 +33,18 @@ public class EnemyController : MonoBehaviour
 
 
     // Use this for initialization
-    void Start()
+    void Awake()
     {
-        enemy = GameObject.FindGameObjectWithTag("Enemy");
 		player = GameObject.FindGameObjectWithTag("Player");
-		target = player.transform;
+		playerModel = player.gameObject.GetComponent<PlayerModel>();
+		playerController = player.GetComponent<PlayerController>();
 
-        enemyModel = enemy.GetComponent<EnemyModel>();
-        playerModel = player.gameObject.GetComponent<PlayerModel>();
-		// playerModel = new PlayerModel ();
-        playerController = player.GetComponent<PlayerController>();
+		enemy = GameObject.FindGameObjectWithTag("Enemy");
+		enemyService = enemy.gameObject.GetComponent<EnemyService> ();
+		enemyModel = enemy.gameObject.GetComponent<EnemyModel> ();
+		print (enemyModel.name);
+
+		target = player.transform;
 
         range = 10f;
         speed = 2f;
@@ -59,7 +62,6 @@ public class EnemyController : MonoBehaviour
     }
 		
 		
-
     public void Move()
     {
         range = Vector2.Distance(enemy.transform.position, player.transform.position);

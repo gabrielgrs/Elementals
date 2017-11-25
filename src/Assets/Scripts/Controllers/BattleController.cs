@@ -25,7 +25,6 @@ public class BattleController : MonoBehaviour {
 		enemyController = enemy.gameObject.GetComponent<EnemyController> ();
 
 		mainCamera = GameObject.FindGameObjectWithTag ("MainCamera");
-		// gameStorage = this.gameObject.AddComponent<GameStorage> ();
 	}
 
 

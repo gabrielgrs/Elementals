@@ -2,23 +2,23 @@ using UnityEngine;
 
 public class EnemyService : MonoBehaviour
 {
-    public GameObject Enemy;
-    public EnemyModel EnemyModel;
+    public GameObject enemy;
+    public EnemyModel enemyModel;
 
 
     void Start()
     {
-        Enemy = GameObject.FindGameObjectWithTag("Enemy");
-        EnemyModel = Enemy.GetComponent<EnemyModel>();        
+        enemy = GameObject.FindGameObjectWithTag("Enemy");
+        enemyModel = enemy.GetComponent<EnemyModel>();        
     }
 
-    public void generateFirstEnemy()
+	public void generateFirstEnemy()
     {
-        EnemyModel.name = "Gandalf";
-		EnemyModel.Life = EnemyModel.MaxLife = 100;
-		EnemyModel.Mana = EnemyModel.MaxMana = 100;
-		EnemyModel.Attack = 10;
-		EnemyModel.Defense = 10;
+        enemyModel.name = "Gandalf";
+		enemyModel.Life = enemyModel.MaxLife = 100;
+		enemyModel.Mana = enemyModel.MaxMana = 100;
+		enemyModel.Attack = 10;
+		enemyModel.Defense = 10;
     }
 
     public void generateSecondEnemy()
