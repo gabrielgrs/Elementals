@@ -14,13 +14,10 @@ public class EnemyController : MonoBehaviour
     public float AttackTime;
     public float coolDown;
 
-
-    public EnemyFactory enemyFactory;
     public EnemyModel enemyModel;
 
     public PlayerController playerController;
     public PlayerModel playerModel;
-    public PlayerFactory playerFactory;
 
 	private float magicCooldown;
 
@@ -149,4 +146,5 @@ public class EnemyController : MonoBehaviour
 			Destroy(enemy);
 		}
     }
+		
 }

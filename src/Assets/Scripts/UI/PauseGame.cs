@@ -9,12 +9,10 @@ public class PauseGame : MonoBehaviour {
 	private bool paused = false;
 
 	void Start() {		
-
 		PausePanel.SetActive (false);
 	}
 
 	void Update() {
-
 		if (Input.GetButtonDown ("Pause")) {
 			paused = !paused;
 		}
@@ -32,23 +30,23 @@ public class PauseGame : MonoBehaviour {
 		}
 	}
 
-	public void Resume() {		
+	public void pauseButton() {
+		paused = !paused;
+	}
 
+	public void Resume() {		
 		paused = false;
 	}
 
 	public void Restart() {
-
 		Application.LoadLevel (Application.loadedLevel);
 	}
 
 	public void MainMenu() {
-
 		Application.LoadLevel (0);
 	}
 
 	public void Quit() {
-
 		Application.Quit();
 	}
 }

@@ -11,9 +11,13 @@ public class CreatePlayer : MonoBehaviour {
     public InputField nameField;
     public Dropdown elementDropdown;
 
+	public GameObject form;
 
-	void Start () 
-    {
+	void Start () {	}
+
+	void Awake() { 
+		form = GameObject.Find ("FormGameObject");
+		form.transform.position = new Vector2 (Screen.width / 2, Screen.height / 2);
 	}
 
     public void SavePlayer()

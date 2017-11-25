@@ -27,7 +27,10 @@ public class PlayerModel : MonoBehaviour {
     public int LifePotion { get; set; }
     public int ManaPotion { get; set; }
 
+	public int LastStage { get; set; }
+
 	// Estados
 	public bool InFloor { get; set; }
 	public bool FacingRight { get; set; }
+
 }

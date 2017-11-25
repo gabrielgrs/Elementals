@@ -15,6 +15,10 @@ public class EnemyService : MonoBehaviour
     public void generateFirstEnemy()
     {
         EnemyModel.name = "Gandalf";
+		EnemyModel.Life = EnemyModel.MaxLife = 100;
+		EnemyModel.Mana = EnemyModel.MaxMana = 100;
+		EnemyModel.Attack = 10;
+		EnemyModel.Defense = 10;
     }
 
     public void generateSecondEnemy()

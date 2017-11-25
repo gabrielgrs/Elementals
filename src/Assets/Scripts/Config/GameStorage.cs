@@ -16,7 +16,11 @@ public class GameStorage : MonoBehaviour {
 		PlayerPrefs.SetInt("PlayerLevel", playerModel.Level);
 		PlayerPrefs.SetInt("PlayerEXP", playerModel.Exp);
 		PlayerPrefs.SetInt("PlayerGold", playerModel.Gold);
-		// PlayerPrefs.SetInt("PlayerLastStage", playerModel.LastStage);
+
+		PlayerPrefs.SetInt("LifePotion", playerModel.LifePotion);
+		PlayerPrefs.SetInt("ManaPotion", playerModel.ManaPotion);
+
+		PlayerPrefs.SetInt("LastStage", playerModel.LastStage);
 
 		print ("SaveGame chamado!");
 	}
@@ -26,7 +30,10 @@ public class GameStorage : MonoBehaviour {
 		playerModel.Level = PlayerPrefs.GetInt("PlayerLevel");
 		playerModel.Exp = PlayerPrefs.GetInt("PlayerEXP");
 		playerModel.Gold = PlayerPrefs.GetInt("PlayerGold");
-		// playerModel.LastStage = PlayerPrefs.GetInt("PlayerLastStage");
+
+		playerModel.LifePotion = PlayerPrefs.GetInt ("LifePotion");
+		playerModel.ManaPotion = PlayerPrefs.GetInt ("ManaPotion");
+		playerModel.LastStage = PlayerPrefs.GetInt("LastStage");
 
 		print ("LoadGame chamado!");
 	}

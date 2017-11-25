@@ -36,9 +36,10 @@ public class HUD : MonoBehaviour {
 	
 		playerModel = player.GetComponent<PlayerModel> ();
 		enemyModel = enemy.GetComponent<EnemyModel> ();
+	}
 
-		// LifeHUD = GameObject.FindGameObjectWithTag ("LifeHUD");
-	
+	void Awake() {
+		
 	}
 	
 	void FixedUpdate() {

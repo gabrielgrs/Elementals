@@ -18,16 +18,12 @@ public class PlayerController : MonoBehaviour
     public Collider2D attackTrigger;
 
     private PlayerModel playerModel;
-    private PlayerFactory playerFactory;
 	private PlayerService playerService;
 
 	public GameObject firstMagic;
 	public GameObject secondMagic;
 	public GameObject thirdMagic;
 
-
-	private float lifeRecoveryCooldown;
-	private float manaRecoveryCooldown;
 	private float magicCooldown ;
 
     private MagicController magicController;
@@ -42,8 +38,6 @@ public class PlayerController : MonoBehaviour
 		// magic = GameObject.FindGameObjectWithTag ("Magic");
 		magicController = firstMagic.GetComponent<MagicController> ();
 
-		lifeRecoveryCooldown = 3f;
-		manaRecoveryCooldown = 3f;
 		magicCooldown = 0f;
      }
 
@@ -54,46 +48,31 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-		// TIMERS
 		magicCooldown -= Time.deltaTime;
-		//! TIMERS
 
 		Move();
         Attack();
         CastMagic();
         UsePotion();
-		// recoveryStats ();
     }
 
     void Awake()
     {
         attackTrigger.enabled = false;
     }
-
-	public void recoveryStats() {
-		lifeRecoveryCooldown -= Time.deltaTime;
-		manaRecoveryCooldown -= Time.deltaTime;
-		if (lifeRecoveryCooldown < 0.1f) {
-			playerModel.Life += 5;
-			lifeRecoveryCooldown = 3f;
-		}
-		if (manaRecoveryCooldown < 0.1f) {
-			playerModel.Mana += 5;
-			manaRecoveryCooldown = 3f;
-		}
-	}
+		
 
     public void Move()
     {
         // Move para a direita
-        if (/*Input.GetAxisRaw("Horizontal") > 0 ||*/ Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.RightArrow))
         {
             transform.Translate(moveSpeed * Vector2.right * Time.deltaTime);
             transform.eulerAngles = new Vector2(0, 0);
             playerModel.FacingRight = true;
         }
         // Move para a esquerda
-        if (/*Input.GetAxisRaw("Horizontal") < 0 || */Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.LeftArrow))
         {
             transform.Translate(moveSpeed * Vector2.right * Time.deltaTime);
             transform.eulerAngles = new Vector2(0, 180);
@@ -110,7 +89,7 @@ public class PlayerController : MonoBehaviour
 
     public void Attack()
     {
-        if (Input.GetKeyDown("f") && !attacking)
+        if (Input.GetKeyDown("z") && !attacking)
         {
             print("Ataquei!");
 
@@ -159,7 +138,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.A) && playerModel.LifePotion > 0)
         {
-            playerModel.Life += 10;
+            playerModel.Life += 20;
             playerModel.LifePotion -= 1;
 
             if (playerModel.Life > playerModel.MaxLife)
@@ -171,7 +150,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.S) && playerModel.ManaPotion > 0)
         {
-            playerModel.Mana += 10;
+            playerModel.Mana += 20;
             playerModel.ManaPotion -= 1;
 
             if (playerModel.Mana > playerModel.MaxMana)

@@ -40,25 +40,4 @@ public class EnemyModel : MonoBehaviour
 		ExpBonus = 10;
         GoldBonus = 10;
     }
-
-    public void receiveDamage(int damage)
-    {
-        print(this.Life);
-        int finalDamage = damage - this.Defense;
-        if (finalDamage < 0)
-        {
-            finalDamage = 1;
-        }
-        this.Life -= finalDamage;
-    }
-
-    public void verifyLife()
-    {
-        if (Life < 1)
-        {
-            Died = true;
-            print("Inimigo Morto");
-        }
-    }
-
 }

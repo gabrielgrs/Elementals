@@ -14,6 +14,27 @@ public class StageSelect : MonoBehaviour {
         playerModel = gameObject.AddComponent<PlayerModel>();
 	}
 
+	void Awake() 
+	{
+		int currentStage = PlayerPrefs.GetInt ("LastStage");
+
+		GameObject.Find ("buttonFirstStage").SetActive(true);
+
+		if (currentStage == 2) {
+			GameObject.Find ("buttonSecondStage").SetActive(true);
+			GameObject.Find ("buttonThirdStage").SetActive(false);
+			GameObject.Find ("buttonFourthStage").SetActive(false);
+		} else if (currentStage == 3) {
+			GameObject.Find ("buttonSecondStage").SetActive(true);
+			GameObject.Find ("buttonThirdStage").SetActive(true);
+			GameObject.Find ("buttonFourthStage").SetActive(false);
+		} else if (currentStage == 4) {
+			GameObject.Find ("buttonSecondStage").SetActive(true);
+			GameObject.Find ("buttonThirdStage").SetActive(true);
+			GameObject.Find ("buttonFourthStage").SetActive(true);
+		}
+	}
+
 
     public void backMenu()
     {
