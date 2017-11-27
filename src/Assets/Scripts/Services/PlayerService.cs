@@ -15,7 +15,7 @@ public class PlayerService : MonoBehaviour
 
 		playerModel.Died = false;
 		playerModel.Gold = PlayerPrefs.GetInt("PlayerGold");
-		playerModel.Exp = PlayerPrefs.GetInt("PlayerExp") + 300;
+		playerModel.Exp = PlayerPrefs.GetInt("PlayerExp");
 
 		playerModel.Life = playerModel.MaxLife = 100;
 		playerModel.Mana = playerModel.MaxMana = 100;
