@@ -34,6 +34,13 @@ public class EnemyMagicTrigger : MonoBehaviour
 
 	}
 
+	void FixedUpdate()
+	{
+		if (Vector2.Distance(this.transform.position, GameObject.FindGameObjectWithTag("Enemy").transform.position) > 15) {
+			Destroy(GameObject.FindGameObjectWithTag("EnemyAttackMagic"));
+		}
+	}
+
 	void Update()
 	{
 		transform.Translate(new Vector2(MagicSpeed * Time.deltaTime, 0));
