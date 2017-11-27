@@ -32,5 +32,4 @@ public class PlayerModel : MonoBehaviour {
 	// Estados
 	public bool InFloor { get; set; }
 	public bool FacingRight { get; set; }
-
 }
