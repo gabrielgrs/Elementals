@@ -18,6 +18,10 @@ public class PlayerModel : MonoBehaviour {
 
 	public int Attack { get; set; }
 	public int Defense { get; set; }
+
+	public int MagicAttack { get; set; }
+	public int MagicDefense { get; set; }
+	
 	public bool Died { get; set; }
 
 	public string FirstSkill { get; set; }
@@ -26,6 +30,14 @@ public class PlayerModel : MonoBehaviour {
 
     public int LifePotion { get; set; }
     public int ManaPotion { get; set; }
+
+	public int SmallLifePotion { get; set; }
+	public int MediumLifePotion { get; set; }
+	public int LargeLifePotion { get; set; }
+
+	public int SmallManaPotion { get; set; }
+	public int MediumManaPotion { get; set; }
+	public int LargeManaPotion { get; set; }
 
 	public int LastStage { get; set; }
 

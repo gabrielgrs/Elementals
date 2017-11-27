@@ -20,15 +20,15 @@ public class Options : MonoBehaviour {
 
 		GUI.skin = perSkin;
 
-		if(GUI.Button (new Rect((float)Screen.width / 2.1f, Screen.height/2, 90,60), "Controles")){
+		if(GUI.Button (new Rect((float)Screen.width / 2.3f, Screen.height/2, 180, 90), "Controles")){
 			
 		}
 
-		if(GUI.Button (new Rect((float)Screen.width / 2.1f, Screen.height/2 + 90, 90,60), "Vídeo")){
+		if(GUI.Button (new Rect((float)Screen.width / 2.3f, Screen.height/2 + 60, 180, 90), "Vídeo")){
 
 		}
 
-		if(GUI.Button (new Rect((float)Screen.width / 2.1f, Screen.height/2 + 180, 90,60), "Voltar")){
+		if(GUI.Button (new Rect((float)Screen.width / 2.3f, Screen.height/2 + 120, 180, 90), "Voltar")){
 			UnityEngine.SceneManagement.SceneManager.LoadScene ("MenuInicial");
 		}
 	}

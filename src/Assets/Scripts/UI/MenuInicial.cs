@@ -21,7 +21,7 @@ public class MenuInicial : MonoBehaviour {
 
 		GUI.skin = PerSkin;
 
-		if (GUI.Button (new Rect ((float)Screen.width / 2.1f, Screen.height / 2 + 90, 90, 60), "Começar")) {
+		if (GUI.Button (new Rect ((float)Screen.width / 2.1f, Screen.height / 2 + 90, 180, 90), "Começar")) {
             if (PlayerPrefs.GetString("Name") == "")
             {
                 UnityEngine.SceneManagement.SceneManager.LoadScene("CreatePlayer");
@@ -33,11 +33,11 @@ public class MenuInicial : MonoBehaviour {
             
 		}
 
-		if (GUI.Button (new Rect ((float)Screen.width / 2.1f, Screen.height / 2 + 150, 90, 60), "Opções")) {
+		if (GUI.Button (new Rect ((float)Screen.width / 2.1f, Screen.height / 2 + 150, 180, 90), "Opções")) {
 			UnityEngine.SceneManagement.SceneManager.LoadScene ("Options");
 		}
 
-		if (GUI.Button (new Rect ((float)Screen.width / 2.1f, Screen.height / 2 + 210, 90, 60), "Sair")) {
+		if (GUI.Button (new Rect ((float)Screen.width / 2.1f, Screen.height / 2 + 210, 180, 90), "Sair")) {
 			Application.Quit ();
 		}
 	

@@ -39,15 +39,18 @@ public class PauseGame : MonoBehaviour {
 	}
 
 	public void Restart() {
-		Application.LoadLevel (Application.loadedLevel);
+		//Application.LoadLevel (Application.loadedLevel);
+		UnityEngine.SceneManagement.SceneManager.LoadScene ("Battle");
 	}
 
 	public void MainMenu() {
-		Application.LoadLevel (0);
+		//Application.LoadLevel (0);
+		UnityEngine.SceneManagement.SceneManager.LoadScene ("MenuInicial");
 	}
 
 	public void Quit() {
-		Application.Quit();
+		//Application.Quit();
+		UnityEngine.SceneManagement.SceneManager.LoadScene ("MenuInicial");
 	}
 }
 
