@@ -6,7 +6,7 @@ public class PauseGame : MonoBehaviour {
 
 	public GameObject PausePanel;
 
-	private bool paused = false;
+	public bool paused = false;
 
 	void Start() {		
 		PausePanel.SetActive (false);
