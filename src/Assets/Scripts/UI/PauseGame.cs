@@ -48,6 +48,10 @@ public class PauseGame : MonoBehaviour {
 		UnityEngine.SceneManagement.SceneManager.LoadScene ("MenuInicial");
 	}
 
+	public void SelectStage() {
+		UnityEngine.SceneManagement.SceneManager.LoadScene ("SelectStage");
+	}
+
 	public void Quit() {
 		//Application.Quit();
 		UnityEngine.SceneManagement.SceneManager.LoadScene ("MenuInicial");

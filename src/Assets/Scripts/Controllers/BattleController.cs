@@ -32,8 +32,6 @@ public class BattleController : MonoBehaviour {
 	}
 
 	void Awake() {
-		rewardPanel = GameObject.Find ("RewardPanel");
-		gameOver = GameObject.Find ("GameOver");	
 	}
 
 	void Update() {
@@ -44,13 +42,11 @@ public class BattleController : MonoBehaviour {
 		if (playerModel.Life < 1) {
 			print ("Game Over!");
 			gameStorage.saveGame ();
-			gameOver.SetActive (true);
 		}
 
 		if (enemyModel.Life < 1) {
 			print ("You Win!");
 			gameStorage.saveGame ();
-			rewardPanel.SetActive (true);
 		}
 	}
 }

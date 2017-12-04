@@ -30,6 +30,12 @@ public class HUD : MonoBehaviour {
 
 	public GameObject LifeHUD;
 
+	public GameObject gameOver;
+	public GameObject rewardPanel;
+
+	public Text expBonus;
+	public Text goldBonus;
+
 
 	void Start () {
 		player = GameObject.FindGameObjectWithTag ("Player");
@@ -40,12 +46,15 @@ public class HUD : MonoBehaviour {
 	}
 
 	void Awake() {
-		
+		gameOver = GameObject.Find ("GameOver");
+		rewardPanel = GameObject.Find ("RewardPanel");
+		gameOver.SetActive (false);
+		rewardPanel.SetActive (false);
 	}
 	
 	void FixedUpdate() {
 		// PlayerHUD
-		LifeHUD.transform.position = new Vector2 (Screen.width / 7, Screen.height - 50);
+		LifeHUD.transform.position = new Vector2 (Screen.width / 20, Screen.height - 50);
 		sliderEnemyLife.transform.position = new Vector2 (Screen.width * 0.9f, Screen.height - 50);
 
 		SliderHP.maxValue = playerModel.MaxLife;
@@ -63,5 +72,14 @@ public class HUD : MonoBehaviour {
 		// EnemyHUD
 		sliderEnemyLife.maxValue = enemyModel.MaxLife;
 		sliderEnemyLife.value = enemyModel.Life;
+
+		if (SliderHP.value < 1) {
+			gameOver.SetActive (true);
+		}
+		if (sliderEnemyLife.value < 1) {
+			expBonus.text = "Você ganhou " + enemyModel.ExpBonus.ToString() + " de experiência!";
+			goldBonus.text = "Você ganhou " + enemyModel.GoldBonus.ToString() + " de experiência!";
+			rewardPanel.SetActive (true);
+		}
 	}
 }

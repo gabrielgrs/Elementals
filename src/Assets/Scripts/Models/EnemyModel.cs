@@ -27,14 +27,14 @@ public class EnemyModel : MonoBehaviour
     {
         Name = "Cebolinha";
 
-        MaxLife = 100;
-        Life = 100;
+        MaxLife = 30;
+        Life = 30;
 
-        MaxMana = 100;
-        Mana = 100;
+        MaxMana = 30;
+        Mana = 30;
 
-        Attack = 10;
-        Defense = 10;
+        Attack = 3;
+        Defense = 3;
         Died = false;
 
 		ExpBonus = 10;
