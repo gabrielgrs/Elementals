@@ -7,6 +7,7 @@ public class HUD : MonoBehaviour {
 
 	public Slider SliderHP;
 	public Slider SliderMP;
+	public Slider sliderEnemyLife;
 
 	public Text playerLevel;
 	public Text playerName;
@@ -43,7 +44,9 @@ public class HUD : MonoBehaviour {
 	}
 	
 	void FixedUpdate() {
-		LifeHUD.transform.position = new Vector2 (Screen.width / 20, Screen.height - 50);
+		// PlayerHUD
+		LifeHUD.transform.position = new Vector2 (Screen.width / 7, Screen.height - 50);
+		sliderEnemyLife.transform.position = new Vector2 (Screen.width * 0.9f, Screen.height - 50);
 
 		SliderHP.maxValue = playerModel.MaxLife;
 		SliderMP.maxValue = playerModel.MaxMana;
@@ -56,5 +59,9 @@ public class HUD : MonoBehaviour {
 
         lifePotionQuantity.text = playerModel.LifePotion.ToString();
         manaPotionQuantity.text = playerModel.ManaPotion.ToString();
+
+		// EnemyHUD
+		sliderEnemyLife.maxValue = enemyModel.MaxLife;
+		sliderEnemyLife.value = enemyModel.Life;
 	}
 }
