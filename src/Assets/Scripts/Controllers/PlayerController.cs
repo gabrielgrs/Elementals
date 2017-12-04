@@ -181,4 +181,10 @@ public class PlayerController : MonoBehaviour
         print("Jogador recebeu gold: " + _gold);
         playerModel.Gold += _gold;
     }
+
+	public void validateLevel(int _stageLevel) {
+		if (_stageLevel > playerModel.LastStage) {
+			playerModel.LastStage = _stageLevel;
+		}
+	}
 }

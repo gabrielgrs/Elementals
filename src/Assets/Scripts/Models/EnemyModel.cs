@@ -15,6 +15,8 @@ public class EnemyModel : MonoBehaviour
 	public int ExpBonus;
     public int GoldBonus;
 
+	public int EnemyStage;
+
     public int Attack;
     public int Defense;
     public bool Died;
@@ -22,6 +24,7 @@ public class EnemyModel : MonoBehaviour
     public string FirstSkill;
     public string SecondSkill;
     public string ThirdSkill;
+
 
     void Start()
     {
@@ -39,5 +42,7 @@ public class EnemyModel : MonoBehaviour
 
 		ExpBonus = 10;
         GoldBonus = 10;
+
+		EnemyStage = 1;
     }
 }

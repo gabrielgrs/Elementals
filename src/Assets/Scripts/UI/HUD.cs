@@ -36,6 +36,8 @@ public class HUD : MonoBehaviour {
 	public Text expBonus;
 	public Text goldBonus;
 
+	public GameStorage gameStorage;
+
 
 	void Start () {
 		player = GameObject.FindGameObjectWithTag ("Player");
@@ -46,6 +48,8 @@ public class HUD : MonoBehaviour {
 	}
 
 	void Awake() {
+		gameStorage = gameObject.AddComponent<GameStorage> ();
+
 		gameOver = GameObject.Find ("GameOver");
 		rewardPanel = GameObject.Find ("RewardPanel");
 		gameOver.SetActive (false);
@@ -75,8 +79,10 @@ public class HUD : MonoBehaviour {
 
 		if (SliderHP.value < 1) {
 			gameOver.SetActive (true);
+			gameStorage.saveGame ();
 		}
 		if (sliderEnemyLife.value < 1) {
+			gameStorage.saveGame ();
 			expBonus.text = "Você ganhou " + enemyModel.ExpBonus.ToString() + " de experiência!";
 			goldBonus.text = "Você ganhou " + enemyModel.GoldBonus.ToString() + " de experiência!";
 			rewardPanel.SetActive (true);
