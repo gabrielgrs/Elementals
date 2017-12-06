@@ -39,4 +39,23 @@ public class GameStorage : MonoBehaviour {
 	}
 
 
+
+	// Gets
+	public string getPlayerName() {
+		return PlayerPrefs.GetString ("PlayerName");
+	}
+
+	public int getPlayerLevel() {
+		return PlayerPrefs.GetInt ("PlayerLevel");
+	}
+
+	public int getPlayerGold() {
+		return PlayerPrefs.GetInt ("PlayerGold");
+	}
+
+	public int getPlayerExp() {
+		return PlayerPrefs.GetInt ("PlayerExp");
+	}
+
+
 }
