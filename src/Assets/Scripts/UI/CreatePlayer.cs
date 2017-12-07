@@ -25,7 +25,7 @@ public class CreatePlayer : MonoBehaviour {
         if (nameField.text != "")
         {
             Name = nameField.text;
-            PlayerPrefs.SetString("Name", Name);
+            PlayerPrefs.SetString("PlayerName", Name);
         }
         else
         {
@@ -36,7 +36,7 @@ public class CreatePlayer : MonoBehaviour {
         if (elementDropdown.value.ToString() != "")
         {
             Element = elementDropdown.value.ToString();
-            PlayerPrefs.SetString("Element", Element);
+            PlayerPrefs.SetString("PlayerElement", Element);
         }
         else
         {

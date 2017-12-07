@@ -6,14 +6,14 @@ public class GameStorage : MonoBehaviour {
 	public GameObject player;
 	public PlayerModel playerModel;
 
-	void Start() {
-		player = GameObject.FindGameObjectWithTag ("Player");
-		playerModel = player.gameObject.GetComponent<PlayerModel> ();
-	}
+
 
 	public void saveGame() {
 		PlayerPrefs.SetString("PlayerName", playerModel.Name);
-		PlayerPrefs.SetInt("PlayerLevel", playerModel.Level);
+
+        PlayerPrefs.SetString("PlayerElement", playerModel.Element);
+
+        PlayerPrefs.SetInt("PlayerLevel", playerModel.Level);
 		PlayerPrefs.SetInt("PlayerEXP", playerModel.Exp);
 		PlayerPrefs.SetInt("PlayerGold", playerModel.Gold);
 
@@ -21,6 +21,7 @@ public class GameStorage : MonoBehaviour {
 		PlayerPrefs.SetInt("ManaPotion", playerModel.ManaPotion);
 
 		PlayerPrefs.SetInt("LastStage", playerModel.LastStage);
+  
 
 		print ("SaveGame chamado!");
 	}
@@ -35,13 +36,44 @@ public class GameStorage : MonoBehaviour {
 		playerModel.ManaPotion = PlayerPrefs.GetInt ("ManaPotion");
 		playerModel.LastStage = PlayerPrefs.GetInt("LastStage");
 
+		playerModel.Element = PlayerPrefs.GetString("PlayerElement");
+
 		print ("LoadGame chamado!");
 	}
 
+    public void resetGame()
+    {
+        PlayerPrefs.DeleteAll();
+    }
 
+    // Setters
+    public void setPlayerName(string _playerName)
+    {
+        PlayerPrefs.SetString("PlayerName", _playerName);
+    }
 
-	// Gets
-	public string getPlayerName() {
+    public void setPlayerLevel(int _playerLevel)
+    {
+        PlayerPrefs.SetInt("PlayerLevel", _playerLevel);
+    }
+
+    public void setPlayerGold(int _playerGold)
+    {
+        PlayerPrefs.SetInt("PlayerGold", _playerGold);
+    }
+
+    public void setPlayerExp(int _playerExp)
+    {
+        PlayerPrefs.SetInt("PlayerExp", _playerExp);
+    }
+
+    public void setPlayerElement(string _playerElement)
+    {
+        PlayerPrefs.SetString("PlayerElement", _playerElement);
+    }
+
+    // Getters
+    public string getPlayerName() {
 		return PlayerPrefs.GetString ("PlayerName");
 	}
 
@@ -56,6 +88,11 @@ public class GameStorage : MonoBehaviour {
 	public int getPlayerExp() {
 		return PlayerPrefs.GetInt ("PlayerExp");
 	}
+
+    public string getPlayerElement()
+    {
+        return PlayerPrefs.GetString("PlayerElement");
+    }
 
 
 }

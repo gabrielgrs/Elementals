@@ -18,12 +18,8 @@ public class BattleController : MonoBehaviour {
 	void Start() 
 	{
 		player = GameObject.FindGameObjectWithTag ("Player");
-		playerModel = player.gameObject.GetComponent<PlayerModel> ();
-		playerController = player.gameObject.GetComponent <PlayerController> ();
 
 		enemy = GameObject.FindGameObjectWithTag ("Enemy");
-		enemyModel = enemy.gameObject.GetComponent<EnemyModel> ();
-		enemyController = enemy.gameObject.GetComponent<EnemyController> ();
 
 		mainCamera = GameObject.FindGameObjectWithTag ("MainCamera");
 

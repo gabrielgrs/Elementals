@@ -9,14 +9,6 @@ public class Shop : MonoBehaviour {
 	//public GameObject menuLifePotions;
 
 
-	void Start () {
-		
-	}
-	
-
-	void Update () {
-		
-	}
 
 	void Awake() {
 		

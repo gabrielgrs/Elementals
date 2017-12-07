@@ -5,9 +5,8 @@ public class PlayerService : MonoBehaviour
     public GameObject player;
     public PlayerModel playerModel;
 
-    void Start() {   }
 
-	void Awake() {
+	public void createPlayer() {
 		player = GameObject.FindGameObjectWithTag("Player");
 		playerModel = player.GetComponent<PlayerModel>();
 

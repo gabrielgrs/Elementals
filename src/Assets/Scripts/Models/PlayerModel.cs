@@ -31,6 +31,8 @@ public class PlayerModel : MonoBehaviour {
     public int LifePotion { get; set; }
     public int ManaPotion { get; set; }
 
+    public string Element { get; set; }
+
 	public int SmallLifePotion { get; set; }
 	public int MediumLifePotion { get; set; }
 	public int LargeLifePotion { get; set; }

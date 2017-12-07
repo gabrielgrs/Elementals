@@ -28,16 +28,27 @@ public class PlayerController : MonoBehaviour
 
     private MagicController magicController;
 
+    private GameStorage gameStorage;
+
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
         playerModel = GetComponent<PlayerModel>();
 		playerService = GetComponent<PlayerService> ();
 
-		// magic = GameObject.FindGameObjectWithTag ("Magic");
+
 		magicController = firstMagic.GetComponent<MagicController> ();
 
+        gameStorage = gameObject.AddComponent<GameStorage>();
+
 		magicCooldown = 0f;
+
+
+        bool test = true;
+        if (test)
+        {
+            playerService.createPlayer();
+        }
     }
 
     void Update()
@@ -73,7 +84,7 @@ public class PlayerController : MonoBehaviour
             playerModel.FacingRight = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.UpArrow))
         {
 			if (transform.position.y - GameObject.FindGameObjectWithTag ("Floor").transform.position.y < -3f) {
 				rb2d.AddForce(transform.up * jumpForce);
@@ -109,18 +120,18 @@ public class PlayerController : MonoBehaviour
 
     public void CastMagic()
     {
-		if (Input.GetKeyDown(KeyCode.Alpha1) && magicCooldown < 0.1f && playerModel.Mana > 19)
+		if (Input.GetKeyDown(KeyCode.X) && magicCooldown < 0.1f && playerModel.Mana > 19)
         {
 			Instantiate(firstMagic, new Vector2(transform.position.x + (playerModel.FacingRight ? +1.2f : -1.2f ), transform.position.y), transform.rotation);
 			magicCooldown = 3f;
 			playerModel.Mana -= 20;
         }
-		if (Input.GetKeyDown(KeyCode.Alpha2) && magicCooldown < 0.1f && playerModel.Mana > 19 && playerModel.Level > 5) {
+		if (Input.GetKeyDown(KeyCode.C) && magicCooldown < 0.1f && playerModel.Mana > 19 && playerModel.Level > 5) {
 			Instantiate(secondMagic, new Vector2(transform.position.x + (playerModel.FacingRight ? +1.2f : -1.2f ), transform.position.y), transform.rotation);
 			magicCooldown = 3f;
 			playerModel.Mana -= 20;
 		}
-		if (Input.GetKeyDown (KeyCode.Alpha3) && playerModel.Mana > 19 && playerModel.Level > 7) {
+		if (Input.GetKeyDown (KeyCode.V) && playerModel.Mana > 19 && playerModel.Level > 7) {
 			// Barreira
 			Instantiate(thirdMagic, new Vector2(transform.position.x + (playerModel.FacingRight ? +2f : -2f ), transform.position.y), transform.rotation);
 			magicCooldown = 5f;
@@ -130,7 +141,7 @@ public class PlayerController : MonoBehaviour
 
     public void UsePotion()
     {
-        if (Input.GetKeyDown(KeyCode.A) && playerModel.LifePotion > 0)
+        if (Input.GetKeyDown(KeyCode.F) && playerModel.LifePotion > 0)
         {
             playerModel.Life += 20;
             playerModel.LifePotion -= 1;
@@ -142,7 +153,7 @@ public class PlayerController : MonoBehaviour
             print("Poção de Mana utilizada!");
         }
 
-        if (Input.GetKeyDown(KeyCode.S) && playerModel.ManaPotion > 0)
+        if (Input.GetKeyDown(KeyCode.G) && playerModel.ManaPotion > 0)
         {
             playerModel.Mana += 20;
             playerModel.ManaPotion -= 1;
@@ -174,12 +185,14 @@ public class PlayerController : MonoBehaviour
 	public void receiveExp(int _exp) {
 		print ("Jogador recebeu experiencia: " + _exp);
 		playerModel.Exp += _exp;
+        gameStorage.setPlayerExp(_exp);
 	}
 
     public void receiveGold(int _gold)
     {
         print("Jogador recebeu gold: " + _gold);
         playerModel.Gold += _gold;
+        gameStorage.setPlayerGold(_gold);
     }
 
 	public void validateLevel(int _stageLevel) {

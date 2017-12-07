@@ -6,29 +6,25 @@ public class Options : MonoBehaviour {
 
 	public GUISkin perSkin;
 
-	// Use this for initialization
+    public GameStorage gameStorage;
+
 	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+        gameStorage = gameObject.AddComponent<GameStorage>();
 	}
 
 	void OnGUI(){
 
 		GUI.skin = perSkin;
 
-		if(GUI.Button (new Rect((float)Screen.width / 2.3f, Screen.height/2, 180, 90), "Controles")){
-			
+		// if(GUI.Button (new Rect((float)Screen.width / 2.3f, Screen.height/2, 180, 90), "Controles")){ }
+
+		if(GUI.Button (new Rect((float)Screen.width / 2.3f, Screen.height/2 + 60, 180, 90), "Resetar Jogo"))
+		{ 
+			gameStorage.resetGame();
 		}
 
-		if(GUI.Button (new Rect((float)Screen.width / 2.3f, Screen.height/2 + 60, 180, 90), "Vídeo")){
 
-		}
-
-		if(GUI.Button (new Rect((float)Screen.width / 2.3f, Screen.height/2 + 120, 180, 90), "Voltar")){
+        if (GUI.Button (new Rect((float)Screen.width / 2.3f, Screen.height/2 + 120, 180, 90), "Voltar")){
 			UnityEngine.SceneManagement.SceneManager.LoadScene ("MenuInicial");
 		}
 	}
