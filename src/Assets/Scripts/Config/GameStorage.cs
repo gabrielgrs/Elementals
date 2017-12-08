@@ -6,7 +6,13 @@ public class GameStorage : MonoBehaviour {
 	public GameObject player;
 	public PlayerModel playerModel;
 
-
+    void Start() {
+        
+        // Light gambiarra lol
+        if (PlayerPrefs.GetString("PlayerName") != "") {
+            playerModel = loadPlayer();
+        }
+    }
 
 	public void saveGame() {
 		PlayerPrefs.SetString("PlayerName", playerModel.Name);
@@ -41,6 +47,20 @@ public class GameStorage : MonoBehaviour {
 		print ("LoadGame chamado!");
 	}
 
+    public PlayerModel loadPlayer() {
+        playerModel = gameObject.AddComponent<PlayerModel>();
+        
+        playerModel.Name = getPlayerName();
+        playerModel.Level = getPlayerLevel();
+        playerModel.Exp = getPlayerExp();
+        playerModel.Gold = getPlayerGold();
+        playerModel.Element = getPlayerElement();
+        playerModel.LifePotion = getPlayerLifePotion();
+        playerModel.ManaPotion = getPlayerManaPotion();
+
+        return playerModel;
+    }
+
     public void resetGame()
     {
         PlayerPrefs.DeleteAll();
@@ -67,9 +87,21 @@ public class GameStorage : MonoBehaviour {
         PlayerPrefs.SetInt("PlayerExp", _playerExp);
     }
 
+    public void setLifePotion(int _lifePotion) {
+        PlayerPrefs.SetInt("PlayerLifePotion", _lifePotion);
+    }
+
+    public void setManaPotion(int _manaPotion) {
+        PlayerPrefs.SetInt("PlayerManaPotion", _manaPotion);
+    }
+
     public void setPlayerElement(string _playerElement)
     {
         PlayerPrefs.SetString("PlayerElement", _playerElement);
+    }
+
+    public void setLastStage(int _playerLastStage) {
+        PlayerPrefs.SetInt("PlayerLastStage", _playerLastStage);
     }
 
     // Getters
@@ -94,5 +126,27 @@ public class GameStorage : MonoBehaviour {
         return PlayerPrefs.GetString("PlayerElement");
     }
 
+    public int getPlayerLifePotion() {
+        return PlayerPrefs.GetInt("PlayerLifePotion");
+    }
+
+    public int getPlayerManaPotion() {
+        return PlayerPrefs.GetInt("PlayerManaPotion");
+    }
+
+    public int getLastStage() {
+        return PlayerPrefs.GetInt("PlayerLastStage");
+    }
+
+
+
+    // CurrentBattle : verifica qual batalha o personagem está atualmente
+    public int getCurrentBattle() {
+        return PlayerPrefs.GetInt("PlayerCurrentbattle");
+    }
+
+    public void setCurrentBattle(int _currentBattle) {
+        PlayerPrefs.SetInt("PlayerCurrentbattle", _currentBattle);
+    }
 
 }

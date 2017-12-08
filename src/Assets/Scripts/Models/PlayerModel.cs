@@ -33,14 +33,6 @@ public class PlayerModel : MonoBehaviour {
 
     public string Element { get; set; }
 
-	public int SmallLifePotion { get; set; }
-	public int MediumLifePotion { get; set; }
-	public int LargeLifePotion { get; set; }
-
-	public int SmallManaPotion { get; set; }
-	public int MediumManaPotion { get; set; }
-	public int LargeManaPotion { get; set; }
-
 	public int LastStage { get; set; }
 
 	// Estados

@@ -10,10 +10,6 @@ public class CityMenu : MonoBehaviour {
 
 	}
 
-	void Update () {
-
-	}
-
 	void OnGUI (){
 
 		GUI.skin = PerSkin;

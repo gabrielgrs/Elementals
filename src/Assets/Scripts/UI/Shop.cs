@@ -6,13 +6,12 @@ public class Shop : MonoBehaviour {
 
 	public GUISkin PerSkin;
 	public PlayerModel playerModel;
-	//public GameObject menuLifePotions;
+	public GameStorage gameStorage;
 
 
-
-	void Awake() {
-		
+	void Awake() {	
 		playerModel = gameObject.AddComponent<PlayerModel> ();
+		playerModel = gameStorage.loadPlayer();
 	}
 
 	void OnGUI (){
@@ -24,6 +23,8 @@ public class Shop : MonoBehaviour {
 			if (playerModel.Gold > 0) {
 				playerModel.Gold -= 10;
 				playerModel.LifePotion++;
+				gameStorage.setLifePotion(playerModel.LifePotion);
+				gameStorage.setPlayerGold(playerModel.Gold);
 				print ("Você comprou uma poção de HP!");
 			} else {
 				print ("Você não tem dinheiro suficiente!");
@@ -36,6 +37,8 @@ public class Shop : MonoBehaviour {
 			if (playerModel.Gold > 0) {
 				playerModel.Gold -= 10;
 				playerModel.ManaPotion++;
+				gameStorage.setManaPotion(playerModel.ManaPotion);
+				gameStorage.setPlayerGold(playerModel.Gold);
 				print ("Você comprou uma poção de MP!");
 			} else {
 				print ("Você não tem dinheiro suficiente!");
