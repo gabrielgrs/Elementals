@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class StageSelect : MonoBehaviour {
 
@@ -10,28 +11,39 @@ public class StageSelect : MonoBehaviour {
     public GameObject enemy;
     public EnemyModel enemyModel;
 
-	void Start () {
-        playerModel = gameObject.AddComponent<PlayerModel>();
+	public GameObject one;
+	public GameObject two;
+	public GameObject three;
+	public GameObject four;
+
+	void Start() {
+		two = GameObject.FindGameObjectWithTag ("buttonSecondStage");
+		three = GameObject.FindGameObjectWithTag ("buttonThirdStage");
+		four = GameObject.FindGameObjectWithTag ("buttonFourthStage");
 	}
 
-	void Awake() 
+	void FixedUpdate() 
 	{
 		int currentStage = PlayerPrefs.GetInt ("LastStage");
+
+		two.SetActive (false);
+		three.SetActive (false);
+		four.SetActive (false);
 
 		GameObject.Find ("buttonFirstStage").SetActive(true);
 
 		if (currentStage == 2) {
-			GameObject.Find ("buttonSecondStage").SetActive(true);
-			GameObject.Find ("buttonThirdStage").SetActive(false);
-			GameObject.Find ("buttonFourthStage").SetActive(false);
+			two.SetActive (true);
+			three.SetActive (false);
+			four.SetActive (false);
 		} else if (currentStage == 3) {
-			GameObject.Find ("buttonSecondStage").SetActive(true);
-			GameObject.Find ("buttonThirdStage").SetActive(true);
-			GameObject.Find ("buttonFourthStage").SetActive(false);
+			two.SetActive (true);
+			three.SetActive (true);
+			four.SetActive (false);
 		} else if (currentStage == 4) {
-			GameObject.Find ("buttonSecondStage").SetActive(true);
-			GameObject.Find ("buttonThirdStage").SetActive(true);
-			GameObject.Find ("buttonFourthStage").SetActive(true);
+			two.SetActive (true);
+			three.SetActive (true);
+			four.SetActive (true);
 		}
 	}
 
@@ -44,28 +56,28 @@ public class StageSelect : MonoBehaviour {
     public void firstStage()
     {
         print("Primeira fase!");
-		PlayerPrefs.SetInt ("LastStage", 1);
+		PlayerPrefs.SetInt ("CurrentStage", 1);
         UnityEngine.SceneManagement.SceneManager.LoadScene("KeyboardTutorial");
     }
 
     public void secondStage()
     {
         print("Segunda fase!");
-		PlayerPrefs.SetInt ("LastStage", 2);
+		PlayerPrefs.SetInt ("CurrentStage", 2);
 		UnityEngine.SceneManagement.SceneManager.LoadScene("KeyboardTutorial");
     }
 
     public void thirdStage()
     {
         print("Primeira fase!");
-		PlayerPrefs.SetInt ("LastStage", 3);
+		PlayerPrefs.SetInt ("CurrentStage", 3);
 		UnityEngine.SceneManagement.SceneManager.LoadScene("KeyboardTutorial");
     }
 
     public void fourthStage()
     {
         print("Primeira fase!");
-		PlayerPrefs.SetInt ("LastStage", 4);
+		PlayerPrefs.SetInt ("CurrentStage", 4);
 		UnityEngine.SceneManagement.SceneManager.LoadScene("KeyboardTutorial");
     }
 }

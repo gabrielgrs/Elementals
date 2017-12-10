@@ -48,6 +48,7 @@ public class CreatePlayer : MonoBehaviour {
         {
 			PlayerPrefs.SetInt("PlayerGold", 500);
 			PlayerPrefs.SetInt("PlayerExp", 1);
+			PlayerPrefs.SetInt ("PlayerLevel", 1);
             UnityEngine.SceneManagement.SceneManager.LoadScene("Cidade");
         }
     }

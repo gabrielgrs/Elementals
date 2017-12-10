@@ -22,7 +22,7 @@ public class MenuInicial : MonoBehaviour {
 		GUI.skin = PerSkin;
 
 		if (GUI.Button (new Rect ((float)Screen.width / 2.1f, Screen.height / 2 + 90, 180, 90), "Começar")) {
-            if (PlayerPrefs.GetString("Name") == "")
+            if (PlayerPrefs.GetString("PlayerName") == "")
             {
                 UnityEngine.SceneManagement.SceneManager.LoadScene("CreatePlayer");
             }

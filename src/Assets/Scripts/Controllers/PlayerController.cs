@@ -129,12 +129,12 @@ public class PlayerController : MonoBehaviour
 			magicCooldown = 3f;
 			playerModel.Mana -= 20;
         }
-		if (Input.GetKeyDown(KeyCode.C) && magicCooldown < 0.1f && playerModel.Mana > 19 && playerModel.Level > 5) {
+		if (Input.GetKeyDown(KeyCode.C) && magicCooldown < 0.1f && playerModel.Mana > 19) {
 			Instantiate(secondMagic, new Vector2(transform.position.x + (playerModel.FacingRight ? +1.2f : -1.2f ), transform.position.y), transform.rotation);
 			magicCooldown = 3f;
 			playerModel.Mana -= 20;
 		}
-		if (Input.GetKeyDown (KeyCode.V) && playerModel.Mana > 19 && playerModel.Level > 7) {
+		if (Input.GetKeyDown (KeyCode.V) && playerModel.Mana > 19) {
 			// Barreira
 			Instantiate(thirdMagic, new Vector2(transform.position.x + (playerModel.FacingRight ? +2f : -2f ), transform.position.y), transform.rotation);
 			magicCooldown = 5f;

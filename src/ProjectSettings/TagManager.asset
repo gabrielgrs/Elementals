@@ -24,6 +24,9 @@ TagManager:
   - PlayerDamage
   - EnemyDamage
   - Limit
+  - buttonSecondStage
+  - buttonThirdStage
+  - buttonFourthStage
   layers:
   - Default
   - TransparentFX

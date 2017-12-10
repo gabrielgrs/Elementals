@@ -15,7 +15,6 @@ public class GameStorage : MonoBehaviour {
     }
 
 	public void saveGame() {
-		PlayerPrefs.SetString("PlayerName", playerModel.Name);
 
         PlayerPrefs.SetString("PlayerElement", playerModel.Element);
 
