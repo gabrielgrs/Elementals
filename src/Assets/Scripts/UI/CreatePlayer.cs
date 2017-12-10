@@ -20,6 +20,7 @@ public class CreatePlayer : MonoBehaviour {
 		form.transform.position = new Vector2 (Screen.width / 2, Screen.height / 2);
 	}
 
+
     public void SavePlayer()
     {
         if (nameField.text != "")
@@ -45,6 +46,8 @@ public class CreatePlayer : MonoBehaviour {
 
         if (Name != "" && Element != "")
         {
+			PlayerPrefs.SetInt("PlayerGold", 500);
+			PlayerPrefs.SetInt("PlayerExp", 1);
             UnityEngine.SceneManagement.SceneManager.LoadScene("Cidade");
         }
     }

@@ -31,8 +31,10 @@ public class KeyboardTutorial : MonoBehaviour {
 			startButton.SetActive (true);
 			loadBar.transform.position = new Vector2 (Screen.width / 2, Screen.height / 3 + 40);
 			loadBar.transform.position = new Vector2 (Screen.width * 100, Screen.height * 100);
-
 		}
+	}
 
+	public void startBattle() {
+		UnityEngine.SceneManagement.SceneManager.LoadScene ("Battle");
 	}
 }

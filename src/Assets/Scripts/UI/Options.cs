@@ -21,6 +21,7 @@ public class Options : MonoBehaviour {
 		if(GUI.Button (new Rect((float)Screen.width / 2.3f, Screen.height/2 + 60, 180, 90), "Resetar Jogo"))
 		{ 
 			gameStorage.resetGame();
+			UnityEngine.SceneManagement.SceneManager.LoadScene ("MenuInicial");
 		}
 
 

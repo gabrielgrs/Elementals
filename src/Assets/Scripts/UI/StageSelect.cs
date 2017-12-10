@@ -44,28 +44,28 @@ public class StageSelect : MonoBehaviour {
     public void firstStage()
     {
         print("Primeira fase!");
-        playerModel.LifePotion = 20;
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Battle");
+		PlayerPrefs.SetInt ("LastStage", 1);
+        UnityEngine.SceneManagement.SceneManager.LoadScene("KeyboardTutorial");
     }
 
     public void secondStage()
     {
-        print("Primeira fase!");
-        playerModel.LifePotion = 20;
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Battle");
+        print("Segunda fase!");
+		PlayerPrefs.SetInt ("LastStage", 2);
+		UnityEngine.SceneManagement.SceneManager.LoadScene("KeyboardTutorial");
     }
 
     public void thirdStage()
     {
         print("Primeira fase!");
-        playerModel.LifePotion = 20;
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Battle");
+		PlayerPrefs.SetInt ("LastStage", 3);
+		UnityEngine.SceneManagement.SceneManager.LoadScene("KeyboardTutorial");
     }
 
     public void fourthStage()
     {
         print("Primeira fase!");
-        playerModel.LifePotion = 20;
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Battle");
+		PlayerPrefs.SetInt ("LastStage", 4);
+		UnityEngine.SceneManagement.SceneManager.LoadScene("KeyboardTutorial");
     }
 }

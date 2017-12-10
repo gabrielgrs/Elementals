@@ -86,7 +86,10 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-			if (transform.position.y - GameObject.FindGameObjectWithTag ("Floor").transform.position.y < -3f) {
+			float distanceToFloor = transform.position.y - GameObject.FindGameObjectWithTag ("Floor").transform.position.y;
+			print(distanceToFloor);
+			print (distanceToFloor > -3f && distanceToFloor > -1f);
+			if (distanceToFloor > -3f && distanceToFloor < -2f) {
 				rb2d.AddForce(transform.up * jumpForce);
 			}
         }

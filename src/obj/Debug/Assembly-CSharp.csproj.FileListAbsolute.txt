@@ -3,7 +3,6 @@ C:\Users\Samantha\Desktop\Gabriel\Code\Elementals\src\Temp\bin\Debug\Assembly-CS
 C:\Users\Samantha\Desktop\Gabriel\Code\Elementals\src\Temp\bin\Debug\Facebook.Unity.Settings.dll
 C:\Users\Samantha\Desktop\Gabriel\Code\Elementals\src\Temp\bin\Debug\nunit.framework.dll
 C:\Users\Samantha\Desktop\Gabriel\Code\Elementals\src\Temp\bin\Debug\UnityEditor.dll
-C:\Users\Samantha\Desktop\Gabriel\Code\Elementals\src\Temp\bin\Debug\UnityEngine.Analytics.dll
 C:\Users\Samantha\Desktop\Gabriel\Code\Elementals\src\Temp\bin\Debug\UnityEngine.dll
 C:\Users\Samantha\Desktop\Gabriel\Code\Elementals\src\Temp\bin\Debug\UnityEngine.HoloLens.dll
 C:\Users\Samantha\Desktop\Gabriel\Code\Elementals\src\Temp\bin\Debug\UnityEngine.Networking.dll
@@ -26,7 +25,6 @@ C:\Users\Samantha\Desktop\Gabriel\Code\Elementals\src\Temp\bin\Debug\UnityEngine
 C:\Users\Samantha\Desktop\Gabriel\Code\Elementals\src\Temp\bin\Debug\UnityEngine.TestRunner.xml
 C:\Users\Samantha\Desktop\Gabriel\Code\Elementals\src\Temp\bin\Debug\nunit.framework.xml
 C:\Users\Samantha\Desktop\Gabriel\Code\Elementals\src\Temp\bin\Debug\UnityEngine.Timeline.xml
-C:\Users\Samantha\Desktop\Gabriel\Code\Elementals\src\Temp\bin\Debug\UnityEngine.Analytics.xml
 C:\Users\Samantha\Desktop\Gabriel\Code\Elementals\src\Temp\bin\Debug\UnityEngine.HoloLens.xml
 C:\Users\Samantha\Desktop\Gabriel\Code\Elementals\src\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
 C:\Users\Samantha\Desktop\Gabriel\Code\Elementals\src\obj\Debug\Assembly-CSharp.dll

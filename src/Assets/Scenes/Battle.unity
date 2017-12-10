@@ -739,7 +739,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 506402837}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 40.590855, y: -3.5557258, z: 0}
+  m_LocalPosition: {x: 31.6, y: -3.5557258, z: 0}
   m_LocalScale: {x: 5.924406, y: 4.379344, z: 1}
   m_Children: []
   m_Father: {fileID: 708410836}
@@ -793,7 +793,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 595886500}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -37.4, y: -9.6, z: 0}
+  m_LocalPosition: {x: -32, y: -9.6, z: 0}
   m_LocalScale: {x: 5.924406, y: 4.379344, z: 1}
   m_Children: []
   m_Father: {fileID: 708410836}
@@ -963,8 +963,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 708410834}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.874144, y: 17.247725, z: 0}
-  m_LocalScale: {x: 0.67517316, y: 0.9133789, z: 1}
+  m_LocalPosition: {x: -6.23, y: 24.7, z: 0}
+  m_LocalScale: {x: 0.92469007, y: 1.2509271, z: 1.3695599}
   m_Children:
   - {fileID: 274721690}
   - {fileID: 595886501}
@@ -3329,7 +3329,6 @@ MonoBehaviour:
   enemy: {fileID: 0}
   enemyModel: {fileID: 0}
   enemyController: {fileID: 0}
-  gameStorage: {fileID: 0}
   rewardPanel: {fileID: 0}
   gameOver: {fileID: 0}
 --- !u!114 &1379078750
@@ -3666,7 +3665,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.103646636, y: -0.6012465}
+  m_Offset: {x: -0.103646636, y: -0.6916609}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -3677,7 +3676,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.6218796, y: 2.2024927}
+  m_Size: {x: 1.6218796, y: 2.3833215}
   m_EdgeRadius: 0
 --- !u!1 &1511443212
 GameObject:
@@ -3789,7 +3788,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1519721749}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.4, y: 3.23, z: 0}
+  m_LocalPosition: {x: -19.7, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 922806258}
@@ -4345,6 +4344,7 @@ MonoBehaviour:
   rewardPanel: {fileID: 0}
   expBonus: {fileID: 1415949290}
   goldBonus: {fileID: 1006355038}
+  gameStorage: {fileID: 0}
 --- !u!114 &1759407589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4481,7 +4481,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.3177414, y: -0.40370643}
+  m_Offset: {x: -0.3177414, y: -0.45537215}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -4492,7 +4492,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.4775858, y: 2.8888395}
+  m_Size: {x: 2.4775858, y: 2.9921708}
   m_EdgeRadius: 0
 --- !u!212 &1762428511
 SpriteRenderer:
@@ -4620,6 +4620,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   playerModel: {fileID: 0}
+  gameStorage: {fileID: 0}
 --- !u!1 &1829537374
 GameObject:
   m_ObjectHideFlags: 0
@@ -4918,6 +4919,7 @@ MonoBehaviour:
   Mana: 0
   ExpBonus: 0
   GoldBonus: 0
+  EnemyStage: 0
   Attack: 0
   Defense: 0
   Died: 0

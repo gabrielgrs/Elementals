@@ -26,3 +26,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SelectStage.unity
     guid: 4a52654ed9038d04a8db9dd4cad4012b
+  - enabled: 1
+    path: Assets/Scenes/KeyboardTutorial.unity
+    guid: ef88cd7612022f0489bdd022272ec048

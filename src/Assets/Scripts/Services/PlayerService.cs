@@ -4,13 +4,18 @@ public class PlayerService : MonoBehaviour
 {
     public GameObject player;
     public PlayerModel playerModel;
+	public GameStorage gameStorage;
+
+	void Start() {
+		// gameStorage = gameObject.AddComponent<GameStorage> ();
+	}
 
 
 	public void createPlayer() {
 		player = GameObject.FindGameObjectWithTag("Player");
 		playerModel = player.GetComponent<PlayerModel>();
 
-		playerModel.Name = PlayerPrefs.GetString("Name") != "" ? PlayerPrefs.GetString("Name") : "Sem Nome!";
+		playerModel.Name = PlayerPrefs.GetString("Name");
 
 		playerModel.Died = false;
 		playerModel.Gold = PlayerPrefs.GetInt("PlayerGold");
@@ -19,8 +24,8 @@ public class PlayerService : MonoBehaviour
 		playerModel.Life = playerModel.MaxLife = 100;
 		playerModel.Mana = playerModel.MaxMana = 100;
 
-		playerModel.LifePotion = 3;
-		playerModel.ManaPotion = 3;
+		playerModel.LifePotion = 5;
+		playerModel.ManaPotion = 5;
 
 		playerModel.InFloor = true;
 		playerModel.FacingRight = true;
