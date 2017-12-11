@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
 
     private GameStorage gameStorage;
 
+
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
@@ -173,8 +174,10 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void receiveDamage(int damage)
+	public void receiveDamage(int damage, string _element)
     {
+		
+		
 		int finalDamage = damage - playerModel.Defense;
 
         if (finalDamage < 1)

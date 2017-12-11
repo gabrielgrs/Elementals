@@ -114,7 +114,7 @@ public class EnemyController : MonoBehaviour
 
 	public void AttackCooldown() {
 		if (AttackTime < 1f) {
-			playerController.receiveDamage (enemyModel.Attack);
+			playerController.receiveDamage (enemyModel.Attack, PlayerPrefs.GetString("EnemyElement"));
 			AttackTime = 3f;
 		}
 	}

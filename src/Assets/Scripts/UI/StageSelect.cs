@@ -54,9 +54,10 @@ public class StageSelect : MonoBehaviour {
     }
 
     public void firstStage()
-    {
+	{
         print("Primeira fase!");
 		PlayerPrefs.SetInt ("CurrentStage", 1);
+		PlayerPrefs.SetString ("EnemyElement", "Fogo");
         UnityEngine.SceneManagement.SceneManager.LoadScene("KeyboardTutorial");
     }
 
@@ -64,6 +65,7 @@ public class StageSelect : MonoBehaviour {
     {
         print("Segunda fase!");
 		PlayerPrefs.SetInt ("CurrentStage", 2);
+		PlayerPrefs.SetString ("EnemyElement", "Vento");
 		UnityEngine.SceneManagement.SceneManager.LoadScene("KeyboardTutorial");
     }
 
@@ -71,6 +73,7 @@ public class StageSelect : MonoBehaviour {
     {
         print("Primeira fase!");
 		PlayerPrefs.SetInt ("CurrentStage", 3);
+		PlayerPrefs.SetString ("EnemyElement", "Terra");
 		UnityEngine.SceneManagement.SceneManager.LoadScene("KeyboardTutorial");
     }
 
@@ -78,6 +81,7 @@ public class StageSelect : MonoBehaviour {
     {
         print("Primeira fase!");
 		PlayerPrefs.SetInt ("CurrentStage", 4);
+		PlayerPrefs.SetString ("EnemyElement", "Água");
 		UnityEngine.SceneManagement.SceneManager.LoadScene("KeyboardTutorial");
     }
 }

@@ -51,7 +51,7 @@ public class EnemyMagicTrigger : MonoBehaviour
 		if (collider.CompareTag("PlayerBody"))
 		{
 			print ("Magica acertou jogador!!");
-			playerController.receiveDamage (30);
+			playerController.receiveDamage (30, PlayerPrefs.GetString("EnemyElement"));
 			Destroy (Magic);
 		}
 
