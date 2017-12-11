@@ -36,7 +36,16 @@ public class CreatePlayer : MonoBehaviour {
 
         if (elementDropdown.value.ToString() != "")
         {
-            Element = elementDropdown.value.ToString();
+			Element = elementDropdown.value.ToString();
+			if (Element == "0")
+				Element = "Água";
+			if (Element == "1")
+				Element = "Fogo";
+			if (Element == "2")
+				Element = "Terra";
+			if (Element == "3")
+				Element = "Vento";
+
             PlayerPrefs.SetString("PlayerElement", Element);
         }
         else
@@ -49,6 +58,8 @@ public class CreatePlayer : MonoBehaviour {
 			PlayerPrefs.SetInt("PlayerGold", 500);
 			PlayerPrefs.SetInt("PlayerExp", 1);
 			PlayerPrefs.SetInt ("PlayerLevel", 1);
+			PlayerPrefs.SetInt ("LifePotion", 5);
+			PlayerPrefs.SetInt ("ManaPotion", 5);
             UnityEngine.SceneManagement.SceneManager.LoadScene("Cidade");
         }
     }

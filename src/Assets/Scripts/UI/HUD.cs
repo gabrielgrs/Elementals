@@ -73,8 +73,8 @@ public class HUD : MonoBehaviour {
 		playerLevel.text = PlayerPrefs.GetInt ("PlayerLevel") < 10 ? "0" + PlayerPrefs.GetInt ("PlayerLevel").ToString () : "??";
 		playerName.text = PlayerPrefs.GetString("PlayerName");
 
-        lifePotionQuantity.text = playerModel.LifePotion.ToString();
-        manaPotionQuantity.text = playerModel.ManaPotion.ToString();
+		lifePotionQuantity.text = PlayerPrefs.GetInt("LifePotion").ToString();
+		manaPotionQuantity.text = PlayerPrefs.GetInt("ManaPotion").ToString();
 
 		// EnemyHUD
 		sliderEnemyLife.maxValue = enemyModel.MaxLife;

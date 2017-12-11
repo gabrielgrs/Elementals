@@ -30,25 +30,8 @@ public class PlayerService : MonoBehaviour
 		playerModel.InFloor = true;
 		playerModel.FacingRight = true;
 
-		playerModel.Level = verifyLevel(playerModel.Exp);
-		VerifyStats(playerModel.Level);
 	}
-
-    public int verifyLevel(int _exp)
-    {
-        if (_exp < 5) return 1;
-        if (_exp < 11) return 2;
-        if (_exp < 15) return 3;
-        if (_exp < 27) return 4;
-        if (_exp < 43) return 5;
-        if (_exp < 71) return 6;
-        if (_exp < 115) return 7;
-        if (_exp < 186) return 8;
-        if (_exp < 301) return 9;
-
-        else return -1;
-    }
-
+		
 	public void VerifyStats(int _level)
     {
         switch (_level)

@@ -27,6 +27,7 @@ TagManager:
   - buttonSecondStage
   - buttonThirdStage
   - buttonFourthStage
+  - PotionsHUD
   layers:
   - Default
   - TransparentFX
