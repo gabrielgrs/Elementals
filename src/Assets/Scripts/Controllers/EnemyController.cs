@@ -144,8 +144,6 @@ public class EnemyController : MonoBehaviour
         enemyModel.Life -= finalDamage;
 
 		if (enemyModel.Life < 1) {
-			playerController.receiveExp(enemyModel.ExpBonus);
-			playerController.validateLevel (enemyModel.EnemyStage);
 			Destroy(enemy);
 		}
     }

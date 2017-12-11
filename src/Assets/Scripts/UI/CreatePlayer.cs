@@ -58,8 +58,9 @@ public class CreatePlayer : MonoBehaviour {
 			PlayerPrefs.SetInt("PlayerGold", 500);
 			PlayerPrefs.SetInt("PlayerExp", 1);
 			PlayerPrefs.SetInt ("PlayerLevel", 1);
-			PlayerPrefs.SetInt ("LifePotion", 5);
-			PlayerPrefs.SetInt ("ManaPotion", 5);
+			PlayerPrefs.SetInt ("LifePotion", 3);
+			PlayerPrefs.SetInt ("ManaPotion", 3);
+			PlayerPrefs.SetInt ("LastStage", 1);
             UnityEngine.SceneManagement.SceneManager.LoadScene("Cidade");
         }
     }

@@ -189,19 +189,6 @@ public class PlayerController : MonoBehaviour
 		}
     }
 
-	public void receiveExp(int _exp) {
-		print ("Jogador recebeu experiencia: " + _exp);
-		playerModel.Exp += _exp;
-        gameStorage.setPlayerExp(_exp);
-	}
-
-    public void receiveGold(int _gold)
-    {
-        print("Jogador recebeu gold: " + _gold);
-        playerModel.Gold += _gold;
-        gameStorage.setPlayerGold(_gold);
-    }
-
 	public void validateLevel(int _stageLevel) {
 		if (_stageLevel > playerModel.LastStage) {
 			playerModel.LastStage = _stageLevel;

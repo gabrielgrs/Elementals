@@ -38,8 +38,11 @@ public class HUD : MonoBehaviour {
 
 	public GameStorage gameStorage;
 
+	public int counter;
+
 
 	void Start () {
+		counter = 0;
 		player = GameObject.FindGameObjectWithTag ("Player");
 		enemy = GameObject.FindGameObjectWithTag ("Enemy");
 	
@@ -86,8 +89,8 @@ public class HUD : MonoBehaviour {
 		if (sliderEnemyLife.value < 1) {
 
 			if (PlayerPrefs.GetInt ("LastStage") == 1) {
-				enemyModel.ExpBonus = 20;
-				enemyModel.GoldBonus = 20;
+				enemyModel.ExpBonus = 10;
+				enemyModel.GoldBonus = 10;
 			}
 
 			if (PlayerPrefs.GetInt ("LastStage") == 2) {
@@ -112,13 +115,15 @@ public class HUD : MonoBehaviour {
 				PlayerPrefs.SetInt ("LastStage", PlayerPrefs.GetInt ("CurrentStage") + 1);
 			}
 
-			saveExp (enemyModel.ExpBonus);
 
+			counter += 1;
+			if (counter == 1) {
+				saveExp (enemyModel.ExpBonus);
+			}
 			expBonus.text = "Você ganhou " + enemyModel.ExpBonus.ToString() + " de experiência!";
 			goldBonus.text = "Você ganhou " + enemyModel.GoldBonus.ToString() + " de experiência!";
 			rewardPanel.SetActive (true);
-		}
-			
+		}	
 	}
 
 	void saveExp(int _exp) {
@@ -133,19 +138,21 @@ public class HUD : MonoBehaviour {
 		if (_exp < 5) {
 			PlayerPrefs.SetInt ("PlayerLevel", 1);
 		} else if (_exp >= 5 && _exp < 55) {
-			PlayerPrefs.SetInt ("PlayerLevel", 3);
+			PlayerPrefs.SetInt ("PlayerLevel", 2);
 		} else if (_exp >= 55 &&_exp < 77) {
-			PlayerPrefs.SetInt ("PlayerLevel", 4);
+			PlayerPrefs.SetInt ("PlayerLevel", 3);
 		} else if (_exp >= 77 &&_exp < 93) {
-			PlayerPrefs.SetInt ("PlayerLevel", 5);
+			PlayerPrefs.SetInt ("PlayerLevel", 4);
 		} else if (_exp >= 93 &&_exp < 171) {
-			PlayerPrefs.SetInt ("PlayerLevel", 6);
+			PlayerPrefs.SetInt ("PlayerLevel", 5);
 		} else if (_exp >= 171 &&_exp < 305) {
-			PlayerPrefs.SetInt ("PlayerLevel", 7);
+			PlayerPrefs.SetInt ("PlayerLevel", 6);
 		} else if (_exp >= 305 &&_exp < 606) {
-			PlayerPrefs.SetInt ("PlayerLevel", 8);
+			PlayerPrefs.SetInt ("PlayerLevel", 7);
 		} else if (_exp >= 606 &&_exp < 777) {
-			PlayerPrefs.SetInt ("PlayerLevel", 9);
-		}
+			PlayerPrefs.SetInt ("PlayerLevel", 8);
+		} else if (_exp >= 777 &&_exp < 999) {
+		PlayerPrefs.SetInt ("PlayerLevel", 9);
+	}
 	}
 }
